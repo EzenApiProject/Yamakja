@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yamakja.shop.mapper.ItemMapper">
+    <!-- Item 테이블 가져오기 -->
+    <select id="getItemList" resultType="com.yamakja.shop.domain.Item">
+        SELECT *
+        FROM Item
+    </select>
+
+    <!-- 회원가입 -->
+    <insert id="insertItem">
+        <selectKey keyProperty="itemId" resultType="integer" order="BEFORE">
+            select ITEM_SEQ.NEXTVAL from dual
+        </selectKey>
+        INSERT INTO ITEM
+            (ITEMID, NAME, PRICE, DESCRIPTION, STOCK, CATEGORY, FNAME, FPATH)
+        VALUES
+            (#{itemId}, #{name}, #{price}, #{description}, #{stock}, #{category}, #{fName}, #{fPath})
+    </insert>
+
+    <select id="getItemById" resultType="com.yamakja.shop.domain.Item">
+        SELECT *
+        FROM Item
+        WHERE itemId = #{itemId}
+    </select>
+
+    <!-- 회원정보 수정 -->
+    <update id="updateItem">
+        UPDATE Item
+        SET name = #{name},
+            Itemname = #{Itemname},
+            email = #{email},
+            password = #{password},
+            address = #{address},
+            phone = #{phone},
+            website = #{website},
+            company = #{company}
+        WHERE id = #{id}
+    </update>
+
+    <!-- 탈퇴 -->
+    <delete id="deleteItem">
+        DELETE
+        FROM Item
+        WHERE id = #{id}
+    </delete>
+</mapper>

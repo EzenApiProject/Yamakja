@@ -42,7 +42,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/api/user","/login", "/signup").permitAll()
-                .anyRequest().authenticated()
+//                .anyRequest().authenticated()
                 .and()
                 .oauth2Login().loginPage("/login")
                 .defaultSuccessUrl("/", true)

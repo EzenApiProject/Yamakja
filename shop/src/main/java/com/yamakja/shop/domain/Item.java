@@ -7,10 +7,12 @@ import org.springframework.web.multipart.MultipartFile;
 @Data
 @Builder
 public class Item {
+    Integer itemId;
     String name;
     int price;
     String description;
     int stock;
     String category;
-    MultipartFile image; // 이미지 파일 업로드
+    String fName; // 이미지 파일 업로드
+    String fPath;
 }

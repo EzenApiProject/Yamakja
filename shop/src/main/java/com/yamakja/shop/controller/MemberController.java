@@ -27,10 +27,6 @@ public class MemberController {
     @Autowired
     private MemberService memberService;
 
-    @GetMapping("/")
-    public String items(@AuthenticationPrincipal OAuth2User oauthUser, Model model) { // 인증된 사용자의 정보를 보여줌
-        return "home";
-    }
 
     //@GetMapping("/") 사용자 데이터를 소셜로그인인지 form로그인인지 분류하여 model로 member를 전달하는 함수
     // 추후에 마이페이지에서 응용하면 될듯
