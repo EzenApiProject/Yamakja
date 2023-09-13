@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import static com.fasterxml.jackson.databind.type.LogicalType.Map;
+
 @Slf4j
 @Controller
 public class CartController {
@@ -25,12 +27,12 @@ public class CartController {
     @Autowired
     private ItemService itemService;
 
-//    @GetMapping("/cart")
-//    public String loadCart(Model model,@AuthenticationPrincipal OAuth2User oauthUser){
-//        String memberId = getMemberId(oauthUser);
-//        cartService.getItemsByMemberId(memberId);
-//        return"/cart";
-//    }
+    @GetMapping("/cart")
+    public String loadCart(Model model,@AuthenticationPrincipal OAuth2User oauthUser){
+        String memberId = getMemberId(oauthUser);
+        model.addAttribute("carts",cartService.getItemsByMemberId(memberId));
+        return"/cart";
+    }
 
     @PostMapping("/addCart")
     public String addCart(Model model,@RequestParam("itemId") int itemId,int quantity,@AuthenticationPrincipal OAuth2User oauthUser){

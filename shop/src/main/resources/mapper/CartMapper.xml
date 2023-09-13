@@ -9,7 +9,17 @@
     </insert>
 
     <select id="getCartIdByMemberId" resultType="integer">
-        SELECT CARTID FROM CART
-        WHERE MEMBERID = ${memberId}
+        SELECT DISTINCT CARTITEMID FROM CARTITEM
+        WHERE CARTMEMBERID = #{memberId}
+    </select>
+
+    <select id="getItemsByCartItemId" resultType="com.yamakja.shop.domain.Cart">
+        SELECT
+            ITEM.ITEMID,ITEM.NAME,ITEM.PRICE,ITEM.DESCRIPTION,ITEM.STOCK,ITEM.CATEGORY,ITEM.FNAME,ITEM.FPATH,QUANTITY
+        FROM (SELECT CARTITEMID, SUM(QUANTITY) AS QUANTITY
+                FROM CARTITEM
+                WHERE CARTITEMID = ${itemId}
+                GROUP BY CARTITEMID) LEFT JOIN ITEM
+                ON ITEM.ITEMID = CARTITEMID
     </select>
 </mapper>

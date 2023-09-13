@@ -65,7 +65,7 @@
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <c:forEach var="item" items="${cartItem}">
+            <c:forEach var="item" items="${carts}">
                 <div class="col mb-5" onclick="location.href='/item/?itemId=${item.itemId}'">
                     <div class="card h-100">
                         <!-- Product image-->
@@ -77,6 +77,7 @@
                                 <h5 class="fw-bolder">${item.name}</h5>
                                 <!-- Product price-->
                                 ${item.price}원
+                                ${item.quantity}개
                             </div>
                         </div>
                         <!-- Product actions-->
