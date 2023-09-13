@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,7 +17,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="login.html"><img src="assets/img/yamakja.png" width="120"></a>
+            <a class="navbar-brand ps-3" href="/"><img src="assets/img/yamakja.png" width="120"></a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -43,7 +46,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="dashboard.html">
+                            <a class="nav-link" href="/admin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -95,23 +98,23 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
                             </a> -->
-                            <a class="nav-link" href="table_orderAdmin.html">
+                            <a class="nav-link" href="/orderAdmin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 주문 관리
                             </a>
-                            <a class="nav-link" href="table_itemAdmin.html">
+                            <a class="nav-link" href="/itemAdmin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 상품 관리
                             </a>
-                            <a class="nav-link" href="table_memberAdmin.html">
+                            <a class="nav-link" href="/memberAdmin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 회원 관리
                             </a>
-                            <a class="nav-link" href="table_faqAdmin.html">
+                            <a class="nav-link" href="/faqAdmin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 고객 지원
                             </a>
-                            <a class="nav-link" href="table_newsAdmin.html">
+                            <a class="nav-link" href="/newsAdmin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 뉴스 관리
                             </a>
@@ -126,111 +129,110 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">주문 관리</h1>
+                        <h1 class="mt-4">뉴스 관리</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
                             <li class="breadcrumb-item active">Tables</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
-                                주문 관리 페이지입니다.
+                                뉴스 관리 페이지입니다.
                             </div>
                         </div>
                         <div class="card mb-4">
                             <div>
                                 <div class="card-header">
                                     <i class="fas fa-table me-1"></i>
-                                    주문 리스트 (전체)
+                                    뉴스 리스트
                                 </div>
                                 <div class="card-header" style="text-align: right;">
-                                    <button type="button" class="btn btn-primary">선택 주문 배송 완료 처리</button>
+                                    <button type="button" class="btn btn-primary">뉴스 등록</button>
                                 </div>
                             </div>
+                            
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>선택</th>
-                                            <th>주문번호</th>
-                                            <th>주문일시</th>
-                                            <th>상품명</th>
-                                            <th>수량</th>
-                                            <th>상품 금액</th>
-                                            <th>총금액</th>
-                                            <th>주문자 ID</th>
-                                            <th>주문상태</th>
+                                            <th>뉴스ID</th>
+                                            <th>제목</th>
+                                            <th>본문 일부</th>
+                                            <th>섬네일 이미지</th>
+                                            <th>url</th>
+                                            <th>등록날짜</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>선택</th>
-                                            <th>주문번호</th>
-                                            <th>주문일시</th>
-                                            <th>상품명</th>
-                                            <th>수량</th>
-                                            <th>상품 금액</th>
-                                            <th>총금액</th>
-                                            <th>주문자 ID</th>
-                                            <th>주문상태</th>
+                                            <th>뉴스ID</th>
+                                            <th>제목</th>
+                                            <th>본문 일부</th>
+                                            <th>섬네일 이미지</th>
+                                            <th>url</th>
+                                            <th>등록날짜</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <tr>
-                                            <td><input type="checkbox" name="selected[]" value="1"></td>
-                                            <td>1</td>
-                                            <td>2024-06-06</td>
-                                            <td>호신용 티타늄 삼단봉</td>
-                                            <td>24000</td>
-                                            <td>1</td>
-                                            <td>24000</td>
-                                            <td>abc123</td>
-                                            <td>배송대기</td>
+                                            <th>1</th>
+                                            <th>동네가 흉흉하다</th>
+                                            <th>현재 살고 있는 이 곳이 과연 안전할까요?</th>
+                                            <th>
+                                                <div style="text-align : center;">
+                                                    <img src="assets/img/otherimage2.jpg" width="50"></th>
+                                                </div>
+                                            <th>www.news.com/1.html</th>
+                                            <th>20230723</th>
                                         </tr>
                                         <tr>
-                                            <td><input type="checkbox" name="selected[]" value="1"></td>
-                                            <td>1</td>
-                                            <td>2024-06-06</td>
-                                            <td>호신용 주먹너클</td>
-                                            <td>8800</td>
-                                            <td>1</td>
-                                            <td>8800</td>
-                                            <td>abc123</td>
-                                            <td>배송대기</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
                                             <td>2</td>
-                                            <td>2024-06-07</td>
-                                            <td>호신용 티타늄 삼단봉</td>
-                                            <td>24000</td>
-                                            <td>2</td>
-                                            <td>48000</td>
-                                            <td>test12</td>
-                                            <td>배송완료</td>
+                                            <td>자신의 몸은 자신이 지켜야 한다.</td>
+                                            <td>경찰이 신고 이후 도착하는 시간은 평균 5분이며, 길면...</td>
+                                            <td>
+                                            <div style="text-align : center;">
+                                                <img src="assets/img/otherimage3.jpg" width="50"></td>
+                                            </div>
+                                            </td>
+                                            <td>www.news.com/2.html</td>
+                                            <td>20230724</td>
                                         </tr>
                                         <tr>
-                                            <td></td>
                                             <td>3</td>
-                                            <td>2024-06-08</td>
-                                            <td>호신용 주먹너클</td>
-                                            <td>8800</td>
-                                            <td>3</td>
-                                            <td>26400</td>
-                                            <td>bias654@gmail.com</td>
-                                            <td>배송완료</td>
+                                            <td>지하철역 근처에 있는 우범지역</td>
+                                            <td>지하철역 입구에서 채 100미터도 떨어지지 않은 곳에...</td>
+                                            <td>
+                                            <div style="text-align : center;">
+                                                <img src="assets/img/otherimage4.jpg" width="50"></td>
+                                            </div>
+                                            </td>
+                                            <td>www.news.com/3.html</td>
+                                            <td>20230726</td>
                                         </tr>
                                         <tr>
-                                            <td></td>
                                             <td>4</td>
-                                            <td>2024-06-09</td>
-                                            <td>호신용 주먹너클</td>
-                                            <td>8800</td>
-                                            <td>1</td>
-                                            <td>8800</td>
-                                            <td>tbsb132@gmail.com</td>
-                                            <td>배송완료</td>
+                                            <td>도대체 행안부는 무엇을 하고 있는가?</td>
+                                            <td>우리의 안전을 지키는 역할을 하는 정부부처의...</td>
+                                            <td>
+                                            <div style="text-align : center;">
+                                                <img src="assets/img/otherimage5.jpg" width="50"></td>
+                                            </div>
+                                            </td>
+                                            <td>www.news.com/4.html</td>
+                                            <td>20230728</td>
                                         </tr>
-
+                                        <tr>
+                                            <td>5</td>
+                                            <td>대항하지 말고 우선 도망쳐라.</td>
+                                            <td>갑작스런 상황, 이런 경우 패닉 상태에 빠져...</td>
+                                            <td>
+                                            <div style="text-align : center;">
+                                                <img src="assets/img/otherimage6.jpg" width="50"></td>
+                                            </div>
+                                            </td>
+                                            <td>www.news.com/5.html</td>
+                                            <td>20230730</td>
+                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -240,7 +242,7 @@
                 <!-- <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div class="text-muted">Copyright &copy; yamakja 2023</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

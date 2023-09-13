@@ -17,7 +17,7 @@
 <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="login.html"><img src="assets/img/yamakja.png" width="120"></a>
+    <a class="navbar-brand ps-3" href="/"><img src="assets/img/yamakja.png" width="120"></a>
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     <!-- Navbar Search-->
@@ -46,7 +46,7 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Core</div>
-                    <a class="nav-link" href="dashboard.html">
+                    <a class="nav-link" href="/admin">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
                     </a>
@@ -98,23 +98,23 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                         Charts
                     </a> -->
-                    <a class="nav-link" href="table_orderAdmin.html">
+                    <a class="nav-link" href="/orderAdmin">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                         주문 관리
                     </a>
-                    <a class="nav-link" href="table_itemAdmin.html">
+                    <a class="nav-link" href="/itemAdmin">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                         상품 관리
                     </a>
-                    <a class="nav-link" href="table_memberAdmin.html">
+                    <a class="nav-link" href="/memberAdmin">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                         회원 관리
                     </a>
-                    <a class="nav-link" href="table_faqAdmin.html">
+                    <a class="nav-link" href="/faqAdmin">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                         고객 지원
                     </a>
-                    <a class="nav-link" href="table_newsAdmin.html">
+                    <a class="nav-link" href="/newsAdmin">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                         뉴스 관리
                     </a>

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,7 +17,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="login.html"><img src="assets/img/yamakja.png" width="120"></a>
+            <a class="navbar-brand ps-3" href="/"><img src="assets/img/yamakja.png" width="120"></a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -43,7 +46,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="dashboard.html">
+                            <a class="nav-link" href="/admin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -95,23 +98,23 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
                             </a> -->
-                            <a class="nav-link" href="table_orderAdmin.html">
+                            <a class="nav-link" href="/orderAdmin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 주문 관리
                             </a>
-                            <a class="nav-link" href="table_itemAdmin.html">
+                            <a class="nav-link" href="/itemAdmin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 상품 관리
                             </a>
-                            <a class="nav-link" href="table_memberAdmin.html">
+                            <a class="nav-link" href="/memberAdmin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 회원 관리
                             </a>
-                            <a class="nav-link" href="table_faqAdmin.html">
+                            <a class="nav-link" href="/faqAdmin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 고객 지원
                             </a>
-                            <a class="nav-link" href="table_newsAdmin.html">
+                            <a class="nav-link" href="/newsAdmin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 뉴스 관리
                             </a>
@@ -126,92 +129,111 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">회원 관리</h1>
+                        <h1 class="mt-4">주문 관리</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
                             <li class="breadcrumb-item active">Tables</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
-                              회원 관리 페이지입니다.
+                                주문 관리 페이지입니다.
                             </div>
                         </div>
                         <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                회원 리스트
+                            <div>
+                                <div class="card-header">
+                                    <i class="fas fa-table me-1"></i>
+                                    주문 리스트 (전체)
+                                </div>
+                                <div class="card-header" style="text-align: right;">
+                                    <button type="button" class="btn btn-primary">선택 주문 배송 완료 처리</button>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>회원 ID</th>
-                                            <th>회원 이름</th>
-                                            <th>주소</th>
-                                            <th>Email</th>
-                                            <th>전화번호</th>
-                                            <th>생년월일</th>
-                                            <th>가입날짜</th>
+                                            <th>선택</th>
+                                            <th>주문번호</th>
+                                            <th>주문일시</th>
+                                            <th>상품명</th>
+                                            <th>수량</th>
+                                            <th>상품 금액</th>
+                                            <th>총금액</th>
+                                            <th>주문자 ID</th>
+                                            <th>주문상태</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>회원 ID</th>
-                                            <th>회원 이름</th>
-                                            <th>주소</th>
-                                            <th>Email</th>
-                                            <th>전화번호</th>
-                                            <th>생년월일</th>
-                                            <th>가입날짜</th>
+                                            <th>선택</th>
+                                            <th>주문번호</th>
+                                            <th>주문일시</th>
+                                            <th>상품명</th>
+                                            <th>수량</th>
+                                            <th>상품 금액</th>
+                                            <th>총금액</th>
+                                            <th>주문자 ID</th>
+                                            <th>주문상태</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <tr>
-                                            <th>kmj1022</th>
-                                            <th>김민주</th>
-                                            <th>서울시 동작구 적당한 장소</th>
-                                            <th>kmj1022@gmail.com</th>
-                                            <th>010-8472-1022</th>
-                                            <th>20021022</th>
-                                            <th>20230602</th>
+                                            <td><input type="checkbox" name="selected[]" value="1"></td>
+                                            <td>1</td>
+                                            <td>2024-06-06</td>
+                                            <td>호신용 티타늄 삼단봉</td>
+                                            <td>24000</td>
+                                            <td>1</td>
+                                            <td>24000</td>
+                                            <td>abc123</td>
+                                            <td>배송대기</td>
                                         </tr>
                                         <tr>
-                                            <th>cms0208</th>
-                                            <th>채민서</th>
-                                            <th>서울시 은평구 적당한 장소</th>
-                                            <th>cms0208@gmail.com</th>
-                                            <th>010-8671-5212</th>
-                                            <th>20010208</th>
-                                            <th>20230605</th>
+                                            <td><input type="checkbox" name="selected[]" value="1"></td>
+                                            <td>1</td>
+                                            <td>2024-06-06</td>
+                                            <td>호신용 주먹너클</td>
+                                            <td>8800</td>
+                                            <td>1</td>
+                                            <td>8800</td>
+                                            <td>abc123</td>
+                                            <td>배송대기</td>
                                         </tr>
                                         <tr>
-                                            <th>cheolsu888</th>
-                                            <th>김철수</th>
-                                            <th>서울시 서대문구 적당한 장소</th>
-                                            <th>cheolsu888@gmail.com</th>
-                                            <th>010-8171-5242</th>
-                                            <th>19950712</th>
-                                            <th>20230612</th>
+                                            <td></td>
+                                            <td>2</td>
+                                            <td>2024-06-07</td>
+                                            <td>호신용 티타늄 삼단봉</td>
+                                            <td>24000</td>
+                                            <td>2</td>
+                                            <td>48000</td>
+                                            <td>test12</td>
+                                            <td>배송완료</td>
                                         </tr>
                                         <tr>
-                                            <th>seoin2932</th>
-                                            <th>서인정</th>
-                                            <th>서울시 구로구 적당한 장소</th>
-                                            <th>seoin2932@gmail.com</th>
-                                            <th>010-8711-4248</th>
-                                            <th>19980215</th>
-                                            <th>20230615</th>
+                                            <td></td>
+                                            <td>3</td>
+                                            <td>2024-06-08</td>
+                                            <td>호신용 주먹너클</td>
+                                            <td>8800</td>
+                                            <td>3</td>
+                                            <td>26400</td>
+                                            <td>bias654@gmail.com</td>
+                                            <td>배송완료</td>
                                         </tr>
                                         <tr>
-                                            <th>nani948</th>
-                                            <th>박난희</th>
-                                            <th>서울시 양천구 적당한 장소</th>
-                                            <th>nani948@gmail.com</th>
-                                            <th>010-8219-7221</th>
-                                            <th>19970921</th>
-                                            <th>20230618</th>
+                                            <td></td>
+                                            <td>4</td>
+                                            <td>2024-06-09</td>
+                                            <td>호신용 주먹너클</td>
+                                            <td>8800</td>
+                                            <td>1</td>
+                                            <td>8800</td>
+                                            <td>tbsb132@gmail.com</td>
+                                            <td>배송완료</td>
                                         </tr>
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
