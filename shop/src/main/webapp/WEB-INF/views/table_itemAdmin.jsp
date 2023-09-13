@@ -131,7 +131,7 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">상품 관리</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
                             <li class="breadcrumb-item active">Tables</li>
                         </ol>
                         <div class="card mb-4">
@@ -146,7 +146,11 @@
                                     상품 리스트
                                 </div>
                                 <div class="card-header" style="text-align: right;">
-                                    <button type="button" class="btn btn-primary">상품 등록</button>
+                                    <a href="/addItem">
+                                        <button type="button" class="btn btn-primary">
+                                            상품 등록
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -174,75 +178,26 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <th>1</th>
-                                            <th>호신용 티타늄 삼단봉</th>
-                                            <th>24000</th>
-                                            <th>매우 튼튼한 삼단봉입니다.</th>
-                                            <th>240</th>
-                                            <th>무기</th>
-                                            <th>
-                                                <div style="text-align : center;">
-                                                <img src="assets/img/samdanbong.png" width="50">
-                                                </div>
-                                            </th>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>아이워너 130데시벨
-                                                초강력휘슬</td>
-                                            <td>11000</td>
-                                            <td>소리가 크고 넓게 퍼집니다.</td>
-                                            <th>140</th>
-                                            <td>호신용품</td>
-                                            <td>
-                                                <div style="text-align : center;">
-                                                    <img src="assets/img/whistle.png" width="50">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>호신용 주먹너클</td>
-                                            <td>8800</td>
-                                            <td>상대에게 놀라운 피해를 입힙니다.</td>
-                                            <th>260</th>
-                                            <td>무기</td>
-                                            <td>
-                                                <div style="text-align : center;">
-                                                <img src="assets/img/knuckle.png" width="50">
-                                            </div>
-                                            </td>
+                                        <c:forEach var="item" items="${items}">
 
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>1.8x8.4 초소형
-                                                캡사이신 스프레이</td>
-                                            <td>18000</td>
-                                            <td>상대를 혼란하게 만들고 제대로 행동할 수 없게 합니다.</td>
-                                            <th>220</th>
-                                            <td>무기</td>
-                                            <td>
-                                                <div style="text-align : center;">
-                                                <img src="assets/img/spray.png" width="50">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>휴대용 유선형 쿠보탄</td>
-                                            <td>12000</td>
-                                            <td>근접한 상대에게 큰 피해를 입힙니다</td>
-                                            <th>140</th>
-                                            <td>무기</td>
-                                            <td>
-                                                <div style="text-align : center;">
-                                                <img src="assets/img/kubotan.png" width="50">
-                                            </div>
-                                            </td>
-                                        </tr>
-                                       
+                                            <tr>
+                                                <td>${item.itemId}</td>
+                                                <td>${item.name}</td>
+                                                <td>${item.price}</td>
+                                                <td>${item.description}</td>
+                                                <td>${item.stock}</td>
+                                                <td>${item.category}</td>
+                                                <td>
+                                                    <div style="text-align : center;">
+                                                    <a href="item/?itemId=${item.itemId}">
+                                                    <img src="${item.FPath}" width="50">
+                                                    </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </c:forEach>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -250,7 +205,7 @@
                     </div>
                 </main>
                 <!-- <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
+                    <div class="container-fluid px-">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Your Website 2023</div>
                             <div>
@@ -263,9 +218,36 @@
                 </footer> -->
             </div>
         </div>
+
+
+
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+
+        <script>
+            // 테이블 요소에 클릭 이벤트 리스너 추가
+            var table = document.getElementById('datatablesSimple');
+            table.addEventListener('click', function(event) {
+                var target = event.target;
+                if (target.tagName === 'TD') {
+                    console.log("event3");
+                    // var row = target.parentElement;
+                    // console.log(row);
+                    var url = target.getAttribute('data-url');
+                    console.log(url);
+                    if (url) {
+                        console.log("event4");
+                        window.location.href = url;
+                    }
+                }
+            });
+        </script>
+
     </body>
+
+
+
 </html>
