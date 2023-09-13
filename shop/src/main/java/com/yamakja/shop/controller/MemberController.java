@@ -2,6 +2,7 @@ package com.yamakja.shop.controller;
 
 import com.yamakja.shop.domain.Member;
 import com.yamakja.shop.service.MemberService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -24,6 +25,7 @@ import java.util.jar.Attributes;
 @Slf4j
 @Controller
 public class MemberController {
+
     @Autowired
     private MemberService memberService;
 
@@ -54,6 +56,10 @@ public class MemberController {
         if (authentication instanceof AnonymousAuthenticationToken)
             return "loginPage";
         return "redirect:/";
+    }
+    @GetMapping("/loginPage")
+    public String directLoginPage() { // 로그인되지 않은 상태이면 로그인 페이지를, 로그인된 상태이면 home 페이지를 보여줌
+            return "loginPage";
     }
 
     @GetMapping("/signup")

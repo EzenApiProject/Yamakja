@@ -31,13 +31,11 @@
     <update id="updateMember">
         UPDATE Member
         SET name = #{name},
-            Membername = #{Membername},
+            name = #{name},
             email = #{email},
             password = #{password},
             address = #{address},
             phone = #{phone},
-            website = #{website},
-            company = #{company}
         WHERE id = #{id}
     </update>
 

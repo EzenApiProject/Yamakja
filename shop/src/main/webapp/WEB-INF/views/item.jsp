@@ -56,13 +56,13 @@
                     <h3>${item.price}원</h3>
                 </div>
                 <p class="lead">${item.description}</p> <!-- 상품설명이 아래로 가야합니다! -->
-                <div class="d-flex">
-                    <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem">
-                    <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                <form action="/addCart/?itemId=${item.itemId}" class="d-flex" method="post">
+                    <input class="form-control text-center me-3" name="quantity" id="quantity" type="num" value="1" style="max-width: 3rem">
+                    <button class="btn btn-outline-dark flex-shrink-0" type="submit">
                         <i class="bi-cart-fill me-1"></i>
-                        <span onclick="location.href='/cart'">Add to cart</span>
+                        <span>Add to cart</span>
                     </button>
-                </div>
+                </form>
             </div>
         </div>
     </div>
