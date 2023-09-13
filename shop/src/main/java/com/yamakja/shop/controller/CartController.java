@@ -1,6 +1,10 @@
 package com.yamakja.shop.controller;
 
+import com.yamakja.shop.domain.Item;
 import com.yamakja.shop.service.CartService;
+import com.yamakja.shop.service.ItemService;
+import com.yamakja.shop.service.MemberService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -15,23 +19,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Slf4j
 @Controller
 public class CartController {
+
     @Autowired
     private CartService cartService;
+    @Autowired
+    private ItemService itemService;
 
-    @GetMapping("/cart")
-    public String loadCart(Model model,@AuthenticationPrincipal OAuth2User oauthUser){
-        String memberId = getMemberId(oauthUser);
-        return"/cart";
-    }
+//    @GetMapping("/cart")
+//    public String loadCart(Model model,@AuthenticationPrincipal OAuth2User oauthUser){
+//        String memberId = getMemberId(oauthUser);
+//        cartService.getItemsByMemberId(memberId);
+//        return"/cart";
+//    }
 
     @PostMapping("/addCart")
-    public void addCart(Model model,@RequestParam("itemId") int itemId,int quantity,@AuthenticationPrincipal OAuth2User oauthUser){
+    public String addCart(Model model,@RequestParam("itemId") int itemId,int quantity,@AuthenticationPrincipal OAuth2User oauthUser){
         log.info(String.valueOf(itemId));
         log.info(String.valueOf(quantity));
         String memberId = getMemberId(oauthUser);
         log.info(memberId);
         cartService.addCartItem(itemId,memberId,quantity);
-        return;
+        return "/items";
     }
 
     public String getMemberId(OAuth2User oauthUser){

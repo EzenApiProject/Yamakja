@@ -35,7 +35,6 @@ public class ItemController {
 
     @PostMapping("/addItem")
     public String insertItem(Item item, MultipartFile file) throws IOException {
-
         itemService.insertItem(item,file);
         return "redirect:/itemList";
     }

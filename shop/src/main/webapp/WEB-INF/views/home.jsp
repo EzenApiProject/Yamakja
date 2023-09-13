@@ -10,13 +10,16 @@
 </head>
 <body>
     <h2>상품 목록</h2><a href="/login">로그인</a>
-    <form id="f" method="post" enctype="multipart/form-data">
+    <form action="/addItem" method="post" enctype="multipart/form-data">
         상품 이름 : <input type="text" name="name" id="name"><br>
         상품 수량 : <input type="number" name="stock" id="stock"><br>
         상품 가격 : <input type="number" name="price" id="price"><br>
-        <input type="hidden" name="fname" class="fname"><br>
-        상품 사진 : <input type="file" id="uploadFile" name="uploadFile"><br>
+        상품 사진 : <input type="file" id="file" name="file"><br>
+        상품 상세 : <input type="text" name="description"><br>
+        상품 카테고리 : 물리무기<input type="radio" value="물리무기" name="category" checked>
+        스프레이<input type="radio" value="스프레이" name="category">
+        원거리무기<input type="radio" value="원거리 무기" name="category">
+        <button id="btnInsert" class="insert" type="submit">등록</button>
     </form>
-    <button id="btnInsert" class="insert">등록</button>
 </body>
 </html>

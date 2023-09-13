@@ -18,7 +18,8 @@ public class CartService {
     @Autowired
     private CartMapper cartMapper;
 
-//    public Map<CartItem,Integer> loadMemberCartItem(String memberId){
+
+//    public Map<CartItem,Integer> getItemsByMemberId(String memberId){
 //        Map<Item,Integer> cartList = cartMapper.loadCartItem(memberId);
 //        log.info(cartList.toString());
 //        return cartList;

@@ -7,4 +7,9 @@
         VALUES
             (#{cartItemId}, #{cartMemberId}, #{quantity})
     </insert>
+
+    <select id="getCartIdByMemberId" resultType="integer">
+        SELECT CARTID FROM CART
+        WHERE MEMBERID = ${memberId}
+    </select>
 </mapper>

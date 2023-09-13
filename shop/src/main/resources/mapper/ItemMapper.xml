@@ -24,7 +24,6 @@
         WHERE itemId = #{itemId}
     </select>
 
-    <!-- 회원정보 수정 -->
     <update id="updateItem">
         UPDATE Item
         SET name = #{name},
@@ -38,7 +37,7 @@
         WHERE id = #{id}
     </update>
 
-    <!-- 탈퇴 -->
+
     <delete id="deleteItem">
         DELETE
         FROM Item

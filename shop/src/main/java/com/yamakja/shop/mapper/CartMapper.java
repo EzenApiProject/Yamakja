@@ -12,4 +12,7 @@ import java.util.List;
 @Mapper
 public interface CartMapper {
     void addCartItem(CartItem cartItem);
+    int getCartIdByMemberId(String memberId);
+
+    Item getItemsByCartId(int cartId);
 }
