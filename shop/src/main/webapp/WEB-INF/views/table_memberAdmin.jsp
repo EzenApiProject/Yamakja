@@ -169,52 +169,19 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                    <c:forEach var="member" items="${members}">
+
                                         <tr>
-                                            <th>kmj1022</th>
-                                            <th>김민주</th>
-                                            <th>서울시 동작구 적당한 장소</th>
-                                            <th>kmj1022@gmail.com</th>
-                                            <th>010-8472-1022</th>
-                                            <th>20021022</th>
-                                            <th>20230602</th>
+                                            <td>${member.id}</td>
+                                            <td>${member.name}</td>
+                                            <td>${member.address}</td>
+                                            <td>${member.email}</td>
+                                            <td>${member.phone}</td>
+                                            <td>${member.birthday}</td>
+                                            <td>20230724</td>
                                         </tr>
-                                        <tr>
-                                            <th>cms0208</th>
-                                            <th>채민서</th>
-                                            <th>서울시 은평구 적당한 장소</th>
-                                            <th>cms0208@gmail.com</th>
-                                            <th>010-8671-5212</th>
-                                            <th>20010208</th>
-                                            <th>20230605</th>
-                                        </tr>
-                                        <tr>
-                                            <th>cheolsu888</th>
-                                            <th>김철수</th>
-                                            <th>서울시 서대문구 적당한 장소</th>
-                                            <th>cheolsu888@gmail.com</th>
-                                            <th>010-8171-5242</th>
-                                            <th>19950712</th>
-                                            <th>20230612</th>
-                                        </tr>
-                                        <tr>
-                                            <th>seoin2932</th>
-                                            <th>서인정</th>
-                                            <th>서울시 구로구 적당한 장소</th>
-                                            <th>seoin2932@gmail.com</th>
-                                            <th>010-8711-4248</th>
-                                            <th>19980215</th>
-                                            <th>20230615</th>
-                                        </tr>
-                                        <tr>
-                                            <th>nani948</th>
-                                            <th>박난희</th>
-                                            <th>서울시 양천구 적당한 장소</th>
-                                            <th>nani948@gmail.com</th>
-                                            <th>010-8219-7221</th>
-                                            <th>19970921</th>
-                                            <th>20230618</th>
-                                        </tr>
-                                        
+
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
