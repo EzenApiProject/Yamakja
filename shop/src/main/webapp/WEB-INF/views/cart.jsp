@@ -99,7 +99,8 @@
         선택 물품 합계 가격: <span id="total">0</span>
     </div>
     <div class="cart__mainbtns">
-        <button class="order">구매하기</button>
+        <button class="order"><a href="/pay">구매하기
+        </a></button>
     </div>
 </section>
 </body>
