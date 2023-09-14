@@ -62,34 +62,113 @@
     </div>
 </header>
 <!-- Section-->
-<section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <c:forEach var="item" items="${carts}">
-                <div class="col mb-5" onclick="location.href='/item/?itemId=${item.itemId}'">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="${item.FPath}" alt="죄송합니다 이미지 준비중입니다." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">${item.name}</h5>
-                                <!-- Product price-->
-                                ${item.price}원
-                                ${item.quantity}개
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>
+<%--<section class="py-5">--%>
+<%--    <div class="container px-4 px-lg-5 mt-5">--%>
+<%--        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">--%>
+<%--            <c:forEach var="item" items="${carts}">--%>
+<%--                <div class="col mb-5" onclick="location.href='/item/?itemId=${item.itemId}'">--%>
+<%--                    <div class="card h-100">--%>
+<%--                        <!-- Product image-->--%>
+<%--                        <img class="card-img-top" src="${item.FPath}" alt="죄송합니다 이미지 준비중입니다." />--%>
+<%--                        <!-- Product details-->--%>
+<%--                        <div class="card-body p-4">--%>
+<%--                            <div class="text-center">--%>
+<%--                                <!-- Product name-->--%>
+<%--                                <h5 class="fw-bolder">${item.name}</h5>--%>
+<%--                                <!-- Product price-->--%>
+<%--                                ${item.price}원--%>
+<%--                                ${item.quantity}개--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <!-- Product actions-->--%>
+<%--                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">--%>
+<%--                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </c:forEach>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</section>--%>
+
+<div class="card mb-4">
+    <div>
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            장바구니
         </div>
     </div>
-</section>
+
+<div class="card-body">
+    <table id="datatablesSimple">
+        <thead>
+        <tr>
+            <th>선택</th>
+            <th>이미지</th>
+            <th>상품명</th>
+            <th>가격</th>
+            <th>수량</th>
+            <th>결제금액</th>
+            <th>카트에서 제거</th>
+
+        </tr>
+        </thead>
+<%--        <tfoot>--%>
+<%--        <tr>--%>
+<%--            <th>이미지</th>--%>
+<%--            <th>상품명</th>--%>
+<%--            <th>가격</th>--%>
+<%--            <th>수량</th>--%>
+<%--            <th>결제금액</th>--%>
+
+<%--        </tr>--%>
+<%--        </tfoot>--%>
+        <tbody>
+        <c:forEach var="item" items="${carts}">
+
+            <tr>
+                <td><input type="checkbox" name="check" id="check"><td>
+                <td>
+                    <div style="text-align: center;">
+                        <a href="item/?itemId=${item.itemId}">
+                            <img src="${item.FPath}" style="width: 100px; height: auto">
+                        </a>
+                    </div>
+                </td>
+
+                <td>
+                    <a href="item/?itemId=${item.itemId}">
+                        ${item.name}
+                    </a>
+                </td>
+                <td>${item.price}</td>
+                <td>${item.quantity}</td>
+                <td>${item.price*item.quantity}</td>
+                <td><button class="mb-3 btn-danger">제거</button></td>
+            </tr>
+
+        </c:forEach>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <div style="text-align: center;">
+            <button type="button">
+            장바구니 비우기
+            </button>
+        </div>
+        <div class="card-header" style="text-align: right;">
+            <button type="button" class="btn btn-primary">
+            선택 물품 주문하기
+            </button>
+        </div>
+    </div>
+
+</div>
+
+
 <!-- Footer-->
 <footer class="py-5 bg-dark">
     <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
