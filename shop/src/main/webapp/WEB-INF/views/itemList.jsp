@@ -43,7 +43,7 @@
                 </li>
             </ul>
             <form class="d-flex">
-                <button class="btn btn-outline-dark" type="submit">
+                <button class="btn btn-outline-dark">
                     <i class="bi-cart-fill me-1"></i>
                     <a href="/cart" style="text-decoration-line: none">
                         Cart
