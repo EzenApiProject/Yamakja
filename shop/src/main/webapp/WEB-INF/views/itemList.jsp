@@ -48,8 +48,20 @@
                     Cart
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button>
-                <button class="btn btn-outline-dark" onclick="location.href='/login'">
-                    Login
+                <button class="btn btn-outline-dark">
+                    <a href="/login" style="text-decoration-line: none">
+                        Login
+                    </a>
+                </button>
+                <button class="btn btn-outline-dark">
+                    <a href="/logout" style="text-decoration-line: none">
+                        Logout
+                    </a>
+                </button>
+                <button class="btn btn-outline-dark">
+                    <a href="/admin" style="text-decoration-line: none">
+                        admin
+                    </a>
                 </button>
             </form>
         </div>

@@ -24,8 +24,6 @@ public class CartController {
 
     @Autowired
     private CartService cartService;
-    @Autowired
-    private ItemService itemService;
 
     @GetMapping("/cart")
     public String loadCart(Model model,@AuthenticationPrincipal OAuth2User oauthUser){
@@ -41,7 +39,7 @@ public class CartController {
         String memberId = getMemberId(oauthUser);
         log.info(memberId);
         cartService.addCartItem(itemId,memberId,quantity);
-        return "/items";
+        return "redirect:/";
     }
 
     public String getMemberId(OAuth2User oauthUser){
@@ -53,6 +51,5 @@ public class CartController {
         }
         return memberId;
     }
-
 }
 

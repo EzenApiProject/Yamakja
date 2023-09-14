@@ -18,8 +18,20 @@
             ITEM.ITEMID,ITEM.NAME,ITEM.PRICE,ITEM.DESCRIPTION,ITEM.STOCK,ITEM.CATEGORY,ITEM.FNAME,ITEM.FPATH,QUANTITY
         FROM (SELECT CARTITEMID, SUM(QUANTITY) AS QUANTITY
                 FROM CARTITEM
-                WHERE CARTITEMID = ${itemId}
+                WHERE CARTITEMID = #{itemId}
                 GROUP BY CARTITEMID) LEFT JOIN ITEM
                 ON ITEM.ITEMID = CARTITEMID
     </select>
+    <select id="hasItem" resultType="java.lang.Integer">
+        SELECT QUANTITY
+        FROM CARTITEM
+        WHERE CARTMEMBERID = #{memberId} AND CARTITEMID = #{itemId}
+    </select>
+
+    <update id="updateCartItem">
+        UPDATE CARTITEM
+        SET QUANTITY = #{quantity}
+        WHERE CARTMEMBERID = #{cartMemberId}
+        AND CARTITEMID = #{cartItemId}
+    </update>
 </mapper>

@@ -34,12 +34,24 @@ public class CartService {
     }
 
     public void addCartItem(int cartItemId, String cartMemberId, int quantity){
-        CartItem cartItem = CartItem.builder()
-                        .cartItemId(cartItemId)
-                        .cartMemberId(cartMemberId)
-                        .quantity(quantity)
-                        .build();
-        log.info(cartItem.toString());
-        cartMapper.addCartItem(cartItem);
+
+        Integer num = cartMapper.hasItem(cartMemberId,cartItemId);
+        if (num != null) {
+            CartItem cartItem = CartItem.builder()
+                    .cartItemId(cartItemId)
+                    .cartMemberId(cartMemberId)
+                    .quantity(num+quantity)
+                    .build();
+            log.info(cartItem.toString());
+            cartMapper.updateCartItem(cartItem);
+        }else{
+            CartItem cartItem = CartItem.builder()
+                    .cartItemId(cartItemId)
+                    .cartMemberId(cartMemberId)
+                    .quantity(quantity)
+                    .build();
+            log.info(cartItem.toString());
+            cartMapper.addCartItem(cartItem);
+        }
     }
 }
