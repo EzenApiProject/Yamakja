@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,166 +8,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Shop Homepage - Start Bootstrap Template</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
-
-    <style>
-        img{
-            width:500px;
-            height:300px;
-        }
-    </style>
-
+    <title>호신용품은 야막자</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link href="css/style1.css" rel="stylesheet" />
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="/">yamakja(이후 상단 부분 공통으로 수정)</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">All Products</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                    </ul>
-                </li>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">My page</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg></a></li>
             </ul>
-            <form class="d-flex">
-                <button class="btn btn-outline-dark" type="submit">
-                    <i class="bi-cart-fill me-1"></i>
-                    Cart
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                </button>
-            </form>
         </div>
     </div>
 </nav>
-<!-- Header-->
-<header class="bg-dark py-5">
-    <div class="container px-4 px-lg-5 my-5">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">Shop in style</h1>
-            <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+<section class="menu">
+    <div class="container2">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav2">
+                    <a href="/"><img src="assets/img/logo.png" class="logo"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <li class="nav-item"><a class="nav-link" href="#!">문의</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">뉴스</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">상품</a></li>
+                </ul>
+            </div>
         </div>
     </div>
+</section>
+<header>
+    <img src="assets/img/banner.png" class="banner">
 </header>
-<!-- Section-->
-<%--<section class="py-5">--%>
-<%--    <div class="container px-4 px-lg-5 mt-5">--%>
-<%--        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">--%>
-<%--            <c:forEach var="item" items="${carts}">--%>
-<%--                <div class="col mb-5" onclick="location.href='/item/?itemId=${item.itemId}'">--%>
-<%--                    <div class="card h-100">--%>
-<%--                        <!-- Product image-->--%>
-<%--                        <img class="card-img-top" src="${item.FPath}" alt="죄송합니다 이미지 준비중입니다." />--%>
-<%--                        <!-- Product details-->--%>
-<%--                        <div class="card-body p-4">--%>
-<%--                            <div class="text-center">--%>
-<%--                                <!-- Product name-->--%>
-<%--                                <h5 class="fw-bolder">${item.name}</h5>--%>
-<%--                                <!-- Product price-->--%>
-<%--                                ${item.price}원--%>
-<%--                                ${item.quantity}개--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                        <!-- Product actions-->--%>
-<%--                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">--%>
-<%--                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </c:forEach>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</section>--%>
-
-<div class="card mb-4">
-    <div>
-        <div class="card-header">
-            <i class="fas fa-table me-1"></i>
-            장바구니
-        </div>
-    </div>
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th>선택</th>
-            <th>이미지</th>
-            <th>상품명</th>
-            <th>가격</th>
-            <th>수량</th>
-            <th>결제금액</th>
-            <th>카트에서 제거</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="item" items="${carts}">
+<body>
+<section class="cart">
+    <table>
+        <form>
+            <thead>
             <tr>
-                <td><input type="checkbox" name="check" id="check" class="checkbox"></td>
-                <td>
-                    <div style="text-align: left;">
-                        <a href="item/?itemId=${item.itemId}">
-                            <img src="${item.FPath}" style="width: 100px; height: auto">
-                        </a>
-                    </div>
-                </td>
-
-                <td>
-                    <a href="item/?itemId=${item.itemId}">
-                            ${item.name}
-                    </a>
-                </td>
-                <td>${item.price}</td>
-                <td>${item.quantity}</td>
-                <td>${item.price*item.quantity}</td>
-                <td><button class="mb-3 btn-danger">제거</button></td>
+                <td><input type="checkbox" class="check"></td>
+                <td colspan="2"><p>제품명</p></td>
+                <td><p>가격</p></td>
+                <td><p>수량</p></td>
+                <td><p>결제금액</p></td>
+                <td><p>제거</p></td>
             </tr>
+            </thead>
+            <tbody>
 
-        </c:forEach>
+            <c:forEach var="item" items="${carts}">
 
-        </tbody>
+            <tr class="cart__list__detail">
+                <td><input type="checkbox" name="check" class="checkbox"></td>
+                <td><img class="cart-image" src="${item.FPath}" alt=""></td>
+                <td><p><a href="/item/?itemId=${item.itemId}">${item.name}</a></p>
+                </td>
+                <td class="cart__list__option">
+                    <p>${item.price}</p>
+                </td>
+                <td>
+                    <p>${item.quantity}</p>
+                    <button type ="button">-</button>
+                    <button type ="button">+</button>
+                </td>
+                <td>
+                    <p>${item.price*item.quantity}</p>
+                </td>
+                <td><button class="mb-3 btn-danger">제거</button></td>
+
+            </tr>
+            </c:forEach>
+            </tbody>
+            <tfoot>
+            <tr class="clear">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan="3"><button>비우기</button>
+                </td>
+            </tr>
+            </tfoot>
+        </form>
     </table>
-
-    <div>
-        <div style="text-align: center;">
-            <button type="button">
-            장바구니 비우기
-            </button>
-        </div>
-        <div class="card-header" style="text-align: right;">
-            선택 물품 합계 가격: <span id="total">0</span>
-        </div>
-        <div class="card-header" style="text-align: right;">
-            <button type="button" class="btn btn-info">
-            <a href="/pay">선택 물품 주문하기(결제화면으로)
-            </a>
-            </button>
-        </div>
+    <div class="card-header" style="text-align: right;">
+        선택 물품 합계 가격: <span id="total">0</span>
     </div>
-
-</div>
-
-
+    <div class="cart__mainbtns">
+        <button class="order"><a href="/pay">구매하기
+        </a></button>
+    </div>
+</section>
+</body>
 <!-- Footer-->
 <footer class="py-5 bg-dark">
-    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+    <div class="container">
+        <img class="footerlogo" src="assets/img/logo.png">
+        <p class="m-0 text-white">https://github.com/EzenApiProject</p>
+        <p class="m-0 text-white">경기도 성남시 중원구 광명로 4 이젠아카데미</p>
+    </div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.1851849351115!2d127.12707597677145!3d37.432729831788144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca883df7418d1%3A0xfdd9d220bb6a8e91!2z6rK96riw64-EIOyEseuCqOyLnCDspJHsm5Dqtawg6rSR66qF66GcIDQ!5e0!3m2!1sko!2skr!4v1694566071535!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 </footer>
 <!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <!-- Core theme JS-->
-<script src="../js/scripts.js"></script>
+<script src="js/scripts.js"></script>
 <script>
     // 체크된 행의 컬럼값 더하기
     function calculateTotal() {
@@ -193,4 +145,3 @@
 </script>
 </body>
 </html>
-
