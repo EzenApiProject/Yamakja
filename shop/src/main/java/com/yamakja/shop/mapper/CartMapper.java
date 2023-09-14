@@ -5,6 +5,7 @@ import com.yamakja.shop.domain.CartItem;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Mapper
@@ -14,4 +15,5 @@ public interface CartMapper {
     Cart getItemsByCartItemId(int itemId);
     Integer hasItem(String memberId, int itemId);
     void updateCartItem(CartItem cartItem);
+    BigInteger totalPrice(String memberId);
 }

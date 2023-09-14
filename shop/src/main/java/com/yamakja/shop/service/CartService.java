@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -53,5 +54,9 @@ public class CartService {
             log.info(cartItem.toString());
             cartMapper.addCartItem(cartItem);
         }
+    }
+
+    public BigInteger getTotal(String memberId){
+        return cartMapper.totalPrice(memberId);
     }
 }

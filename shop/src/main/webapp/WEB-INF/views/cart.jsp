@@ -87,6 +87,7 @@
                     </div>
                 </div>
             </c:forEach>
+            <a href="/pay"><h1>결제화면으로</h1></a>
         </div>
     </div>
 </section>
