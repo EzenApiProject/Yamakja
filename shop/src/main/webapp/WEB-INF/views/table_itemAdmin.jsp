@@ -181,7 +181,13 @@
                                         <c:forEach var="item" items="${items}">
 
                                             <tr>
-                                                <td>${item.itemId}</td>
+                                                <td>
+                                                    <div>
+                                                        <a href="item/?itemId=${item.itemId}">
+                                                        ${item.itemId}
+                                                        </a>
+                                                    </div>
+                                                </td>
                                                 <td>${item.name}</td>
                                                 <td>${item.price}</td>
                                                 <td>${item.description}</td>
