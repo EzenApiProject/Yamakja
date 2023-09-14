@@ -15,7 +15,7 @@
 
     <select id="getItemsByCartItemId" resultType="com.yamakja.shop.domain.Cart">
         SELECT
-            ITEM.ITEMID,ITEM.NAME,ITEM.PRICE,ITEM.DESCRIPTION,ITEM.STOCK,ITEM.CATEGORY,ITEM.FNAME,ITEM.FPATH,QUANTITY
+            ITEM.*,QUANTITY
         FROM (SELECT CARTITEMID, SUM(QUANTITY) AS QUANTITY
                 FROM CARTITEM
                 WHERE CARTITEMID = #{itemId}

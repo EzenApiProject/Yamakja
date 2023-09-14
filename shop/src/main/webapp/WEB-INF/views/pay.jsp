@@ -14,6 +14,11 @@
     <link href="css/styles.css" rel="stylesheet" />
     <!-- for payments -->
     <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous">
+    </script>
 </head>
 <body>
 <section class="py-5">
@@ -44,7 +49,7 @@
         </div>
         <div class="col mb-5">
             <h1>총 가격 : ${total}</h1>
-            <button onclick="requestPay()">결제하기</button>
+            <button class="btn-primary" onclick="requestPay()">결제하기</button>
         </div>
     </div>
 </section>
@@ -55,24 +60,20 @@
 
     function requestPay() {
         alert("토스 결제창만 띄우게 했습니다. 실결제는 구현이 안되있으니 확인하시고 닫아주시면 진행됩니다");
-        IMP.request_pay(
-            {
-                pg: "tosstest",		//KG이니시스 pg파라미터 값
-                pay_method: "tosspay",		//결제 방법
-                merchant_uid: "1234578",//주문번호
-                name: "야막자",		//상품 명
-                amount: ${total},			//금액
+        IMP.request_pay({
+                pg: "tosstest",
+                pay_method: "tosspay",
+                merchant_uid: "1234578",
+                name: "야막자",
+                amount: ${total},
                 buyer_email: "${member.email}",
                 buyer_name: "${member.name}",
                 buyer_tel: "010-7762-3889",
                 buyer_addr: "경기도 성남시",
                 buyer_postcode: "01181"
-            },
-            function (rsp) {
-                    alert("결제에 성공하셧습니다 Real 에러 내용: ");
-                    window.location.href="/order";
-            }
-        );
+            },function(){
+                window.location.href="/addOrder";
+            });
     }
 </script>
 </body>
