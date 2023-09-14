@@ -99,8 +99,7 @@
         </div>
     </div>
 
-<div class="card-body">
-    <table id="datatablesSimple">
+    <table class="table">
         <thead>
         <tr>
             <th>선택</th>
@@ -110,26 +109,14 @@
             <th>수량</th>
             <th>결제금액</th>
             <th>카트에서 제거</th>
-
         </tr>
         </thead>
-<%--        <tfoot>--%>
-<%--        <tr>--%>
-<%--            <th>이미지</th>--%>
-<%--            <th>상품명</th>--%>
-<%--            <th>가격</th>--%>
-<%--            <th>수량</th>--%>
-<%--            <th>결제금액</th>--%>
-
-<%--        </tr>--%>
-<%--        </tfoot>--%>
         <tbody>
         <c:forEach var="item" items="${carts}">
-
             <tr>
-                <td><input type="checkbox" name="check" id="check"><td>
+                <td><input type="checkbox" name="check" id="check" class="checkbox"></td>
                 <td>
-                    <div style="text-align: center;">
+                    <div style="text-align: left;">
                         <a href="item/?itemId=${item.itemId}">
                             <img src="${item.FPath}" style="width: 100px; height: auto">
                         </a>
@@ -138,7 +125,7 @@
 
                 <td>
                     <a href="item/?itemId=${item.itemId}">
-                        ${item.name}
+                            ${item.name}
                     </a>
                 </td>
                 <td>${item.price}</td>
@@ -149,15 +136,17 @@
 
         </c:forEach>
 
-            </tbody>
-        </table>
-    </div>
+        </tbody>
+    </table>
 
     <div>
         <div style="text-align: center;">
             <button type="button">
             장바구니 비우기
             </button>
+        </div>
+        <div class="card-header" style="text-align: right;">
+            선택 물품 합계 가격: <span id="total">0</span>
         </div>
         <div class="card-header" style="text-align: right;">
             <button type="button" class="btn btn-primary">
@@ -177,6 +166,30 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="../js/scripts.js"></script>
+<script>
+    // 체크된 행의 세 번째 컬럼값 더하기
+    function calculateTotal() {
+        var checkboxes = document.querySelectorAll('.checkbox');
+        var total = 0;
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                var row = checkboxes[i].parentNode.parentNode;
+                var cell = row.cells[5]; // 세 번째 컬럼 (0부터 시작)
+                total += parseInt(cell.innerText);
+            }
+        }
+
+        // 결과를 화면에 표시
+        document.getElementById('total').textContent = total;
+    }
+
+    // 체크박스가 변경될 때마다 합계를 다시 계산
+    var checkboxes = document.querySelectorAll('.checkbox');
+    for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener('change', calculateTotal);
+    }
+</script>
 </body>
 </html>
 
