@@ -52,7 +52,7 @@
         <h3>로그인</h3><br>
         <form method="post">
             <div class="textline">
-                <input type="email" name="u" placeholder="E-mail 주소" required="required" />
+                <input type="text" name="u" placeholder="ID"/>
                 <input type="password" name="p" placeholder="비밀번호" required="required" />
             </div><br>
             <div class="sociallogin">
@@ -61,8 +61,8 @@
                 <img class="naver" src="../imgs/button/btnW_official.png"
                      onclick="location.href='/oauth2/authorization/naver'"/>
             </div>
-            <div class="emaillogin">
-                <button type="submit" class="btn btn-primary btn-block btn-large">Email 주소로 로그인</button>
+            <div class="loginbtn">
+                <button type="submit" class="btn btn-primary btn-block btn-large">로그인</button>
             </div>
         </form>
     </div>
