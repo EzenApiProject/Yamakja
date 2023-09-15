@@ -5,11 +5,11 @@
         <selectKey keyProperty="orderId" resultType="integer" order="BEFORE">
             select ORDER_SEQ.NEXTVAL from dual
         </selectKey>
-        <foreach collection="list" item="carts" index="index" open="INSERT ALL" close="" separator=" ">
+        <foreach collection="carts" item="carts" open="INSERT ALL" close="" separator=" ">
             INTO ORDERLIST
-            (ORDERID,STATUS,MEMBERID,ITEMID,QUANTITY)
+            (ORDERID,MEMBERID,ITEMID,QUANTITY)
             VALUES
-            (#{orderId},'주문완료',#{memberId},#{carts.itemId},#{carts.quantity})
+            (#{orderId},#{memberId},#{carts.itemId},#{carts.quantity})
         </foreach>
     </insert>
     <select id="getOrderList" resultType="com.yamakja.shop.domain.OrderList">
