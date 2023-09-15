@@ -64,19 +64,18 @@
                     <p class="lead">${item.description}</p> <!-- 상품설명이 아래로 가야합니다! -->
                 </section>
 
+                <form action="/addCart/?itemId=${item.itemId}" class="d-flex" method="post">
+                    <input class="form-control text-center me-3" name="quantity" id="quantity" type="num" value="1" style="max-width: 3rem">
+                    <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        <span>바로 구매</span>
+                    </button>
+                    <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                        <i class="bi-cart-fill me-1"></i>
+                        <span>장바구니 담기</span>
+                    </button>
+                </form>
 
-                <div class="d-flex buycart">
-                    <div class="btnline">
-                        <button class="btn btn-outline-dark " type="button">
-                            <i class="buybutton"></i>
-                            바로구매
-                        </button>
-                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                            <i class="cartbutton"></i>
-                            장바구니 담기
-                        </button>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
