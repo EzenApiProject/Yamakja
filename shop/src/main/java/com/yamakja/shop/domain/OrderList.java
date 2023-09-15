@@ -7,9 +7,11 @@ import java.sql.Date;
 
 @Data
 @Builder
-public class Order {
+public class OrderList {
     Integer orderId;
     String status;
     String memberId;
     Date createdAt;
+    Integer itemID;
+    int quantity;
 }

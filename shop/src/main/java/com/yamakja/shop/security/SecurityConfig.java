@@ -33,6 +33,7 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 .httpBasic().disable()
+                .anonymous().disable()
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/auth")

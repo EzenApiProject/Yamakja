@@ -43,7 +43,7 @@
     </div>
 </section>
 <header>
-    <img src="assets/img/banner.png" class="banner">
+    <img src="assets/img/banner.jpg" class="banner">
 </header>
 <body>
 <section class="cart">

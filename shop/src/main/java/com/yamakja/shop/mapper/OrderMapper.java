@@ -1,18 +1,14 @@
 package com.yamakja.shop.mapper;
 
 import com.yamakja.shop.domain.Cart;
-import com.yamakja.shop.domain.OrderDetail;
-import com.yamakja.shop.domain.OrderItem;
+import com.yamakja.shop.domain.OrderList;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-import com.yamakja.shop.domain.Order;
 import java.util.List;
 
 @Mapper
-@Repository
 public interface OrderMapper {
-    void saveOrder(Order order) throws Exception;
-    List<Order> getOrder(String memberId) throws Exception;
-    List<OrderItem> getOrderList(Order order) throws Exception;
-    void addOrderDetail(Order order,Cart cart) throws Exception;
+    void saveOrder(@Param("memberId") String memberId,@Param("carts") List<Cart> carts) throws Exception;
+    List<OrderList> getOrderList(String memberId) throws Exception;
 }

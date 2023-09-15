@@ -40,7 +40,7 @@
         </div>
     </section>
     <header>
-        <img src="../imgs/banner.png" class="banner">
+        <img src="../imgs/banner.jpg" class="banner">
     </header>
     <!-- Login -->
     <section class="py-5">
@@ -54,11 +54,14 @@
                 <input type="password" name="p" placeholder="비밀번호" required="required" />
                 </div><br>
                 <div class="sociallogin">
-                <button type="submit" class="btn btn-block btn-large">구글</button>
-                <button type="submit" class="btn btn-block btn-large">카카오톡</button>
-                <button type="submit" class="btn btn-block btn-large">게스트 로그인</button>
+                    <img class="google" src="../imgs/button/btn_google_signin_light_normal_web@2x.png"
+                    onclick="location.href='/oauth2/authorization/google'"/>
+                    <img class="naver" src="../imgs/button/btnW_official.png"
+                         onclick="location.href='/oauth2/authorization/naver'"/>
                 </div>
+                <div class="emaillogin">
                 <button type="submit" class="btn btn-primary btn-block btn-large">Email 주소로 로그인</button>
+                </div>
             </form>
         </div>
     </section>

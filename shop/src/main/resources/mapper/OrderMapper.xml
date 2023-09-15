@@ -1,30 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yamakja.shop.mapper.OrderMapper">
-    <insert id="addOrderDetail">
-        INSERT INTO ORDERDETAIL
-            (orderid, itemid, quantity)
-        VALUES
-            (#{order.orderId}, #{cart.itemId}, #{cart.quantity})
-    </insert>
-    <insert id="saveOrder">
+    <insert id="saveOrder" parameterType="map">
         <selectKey keyProperty="orderId" resultType="integer" order="BEFORE">
             select ORDER_SEQ.NEXTVAL from dual
         </selectKey>
-        INSERT INTO ORDERMAIN
-        (ORDERID,STATUS,MEMBERID)
-        VALUES
-        (#{orderId},#{status},#{memberId})
+        <foreach collection="list" item="carts" index="index" open="INSERT ALL" close="" separator=" ">
+            INTO ORDERLIST
+            (ORDERID,STATUS,MEMBERID,ITEMID,QUANTITY)
+            VALUES
+            (#{orderId},'주문완료',#{memberId},#{carts.itemId},#{carts.quantity})
+        </foreach>
     </insert>
-
-    <select id="getOrder" resultType="com.yamakja.shop.domain.Order">
-        SELECT * FROM ORDERMAIN
+    <select id="getOrderList" resultType="com.yamakja.shop.domain.OrderList">
+        SELECT * FROM ORDERLIST
         WHERE MEMBERID = #{memberId}
-    </select>
-    <select id="getOrderList" resultType="com.yamakja.shop.domain.OrderItem">
-        SELECT ITEM.*, ORDERDETAIL.ORDERID,ORDERDETAIL.QUANTITY
-        FROM ORDERDETAIL LEFT JOIN ITEM
-        ON ORDERDETAIL.ITEMID = ITEM.ITEMID
-        WHERE ORDERDETAIL.ORDERID = #{orderId}
     </select>
 </mapper>
