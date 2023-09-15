@@ -50,16 +50,16 @@ public class MemberController {
         return "userListPage";
     }
 
-    @GetMapping("/login")
+//    @GetMapping("/login") // 익명유저 활성화 전용
     public String loginPage() { // 로그인되지 않은 상태이면 로그인 페이지를, 로그인된 상태이면 home 페이지를 보여줌
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken)
             return "loginPage";
         return "redirect:/";
     }
-    @GetMapping("/loginPage")
+    @GetMapping("/login")
     public String directLoginPage() { // 로그인되지 않은 상태이면 로그인 페이지를, 로그인된 상태이면 home 페이지를 보여줌
-            return "loginPage";
+            return "/loginPage";
     }
 
     @GetMapping("/signup")

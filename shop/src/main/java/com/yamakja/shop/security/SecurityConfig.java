@@ -33,7 +33,7 @@ public class SecurityConfig {
         http
                 .csrf().disable()
                 .httpBasic().disable()
-                .anonymous().disable()
+//                .anonymous().disable()
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/auth")
@@ -47,8 +47,7 @@ public class SecurityConfig {
                 .and()
                 .oauth2Login().loginPage("/login")
                 .defaultSuccessUrl("/", true)
-                .userInfoEndpoint()
-                .userService(customOAuth2UserService);
+                .userInfoEndpoint();
         return http.build();
     }
 }
