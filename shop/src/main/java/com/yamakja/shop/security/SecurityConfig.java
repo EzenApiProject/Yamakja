@@ -47,7 +47,8 @@ public class SecurityConfig {
                 .and()
                 .oauth2Login().loginPage("/login")
                 .defaultSuccessUrl("/", true)
-                .userInfoEndpoint();
+                .userInfoEndpoint()
+                .userService(customOAuth2UserService);
         return http.build();
     }
 }

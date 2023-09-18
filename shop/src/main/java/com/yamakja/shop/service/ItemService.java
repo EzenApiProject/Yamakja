@@ -1,6 +1,7 @@
 package com.yamakja.shop.service;
 
 import com.yamakja.shop.domain.Item;
+import com.yamakja.shop.domain.ItemComment;
 import com.yamakja.shop.mapper.ItemMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class ItemService {
         File saveFile = new File(projectPath, fileName);
         file.transferTo(saveFile);
 
-        item.setItemId(0); // null포인터때매 임시값
+        //임시해제 item.setItemId(0); // null포인터때매 임시값
         item.setFName(fileName);
         item.setFPath("/imgs/" + fileName);
         log.info(item.toString());
@@ -45,4 +46,23 @@ public class ItemService {
         return itemMapper.getItemById(id);
     }
 
+    public List<ItemComment> getItemComments(int itemId){
+        return itemMapper.getItemComments(itemId);
+    }
+
+    public void addItemComments(ItemComment itemComment, MultipartFile file) throws IOException {
+        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\imgs";
+
+        UUID uuid = UUID.randomUUID();
+
+        String fileName = uuid + "_" + file.getOriginalFilename();
+
+        File saveFile = new File(projectPath, fileName);
+        file.transferTo(saveFile);
+
+        itemComment.setFName(fileName);
+        itemComment.setFPath("/imgs/" + fileName);
+
+        itemMapper.addItemComments(itemComment);
+    }
 }

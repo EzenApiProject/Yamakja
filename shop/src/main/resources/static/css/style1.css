@@ -43,6 +43,9 @@
   height: 25%;
 }
 
+a{
+  text-decoration-line: none;
+}
 
 .banner {
   width:100%;

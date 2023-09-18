@@ -30,6 +30,11 @@ public class MemberController {
     private MemberService memberService;
 
 
+//    @GetMapping("/myPage")
+    public String myPage(){
+        return "/myPage";
+    }
+
     //@GetMapping("/") 사용자 데이터를 소셜로그인인지 form로그인인지 분류하여 model로 member를 전달하는 함수
     // 추후에 마이페이지에서 응용하면 될듯
     public String bringMember(@AuthenticationPrincipal OAuth2User oauthUser, Model model) { // 인증된 사용자의 정보를 보여줌

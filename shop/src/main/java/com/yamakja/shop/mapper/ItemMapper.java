@@ -1,6 +1,7 @@
 package com.yamakja.shop.mapper;
 
 import com.yamakja.shop.domain.Item;
+import com.yamakja.shop.domain.ItemComment;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface ItemMapper {
     Item getItemById(Integer id);
     void updateItem(Item item); // 회원 정보 수정
     void deleteItem(Long id); // 회원 탈퇴
+    List<ItemComment> getItemComments(int itemId);
+    void addItemComments(ItemComment itemComment);
 }

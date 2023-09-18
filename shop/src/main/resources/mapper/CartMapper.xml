@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yamakja.shop.mapper.CartMapper">
     <insert id="addCartItem">
-        INSERT INTO CartItem
-            (cartItemId, cartMemberId, quantity)
+        INSERT INTO CARTITEM
+            (CARTITEMID, CARTMEMBERID, QUANTITY)
         VALUES
             (#{cartItemId}, #{cartMemberId}, #{quantity})
     </insert>
@@ -15,12 +15,12 @@
 
     <select id="getItemsByCartItemId" resultType="com.yamakja.shop.domain.Cart">
         SELECT
-            ITEM.*,QUANTITY
+            B.*, A.QUANTITY
         FROM (SELECT CARTITEMID, SUM(QUANTITY) AS QUANTITY
                 FROM CARTITEM
                 WHERE CARTITEMID = #{itemId}
-                GROUP BY CARTITEMID) LEFT JOIN ITEM
-                ON ITEM.ITEMID = CARTITEMID
+                GROUP BY CARTITEMID) AS A LEFT JOIN ITEM AS B
+                ON B.ITEMID = A.CARTITEMID
     </select>
     <select id="hasItem" resultType="java.lang.Integer">
         SELECT QUANTITY

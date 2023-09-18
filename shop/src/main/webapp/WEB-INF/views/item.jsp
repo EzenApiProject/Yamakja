@@ -66,16 +66,17 @@
 
 
                 <div class="d-flex buycart">
-                    <div class="btnline">
-                        <button class="btn btn-outline-dark " type="button">
-                            <i class="buybutton"></i>
-                            바로구매
+                    <form action="/addCart/?itemId=${item.itemId}" class="d-flex" method="post">
+                        <input class="form-control text-center me-3" name="quantity" id="quantity" type="num" value="1" style="max-width: 3rem">
+                        <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            <span>바로 구매</span>
                         </button>
-                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                            <i class="cartbutton"></i>
-                            장바구니 담기
+                        <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            <span>장바구니 담기</span>
                         </button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -161,7 +162,15 @@
                     </a>
                 </div>
             </div>
-
+            <div class="col mb-5">
+                <c:forEach var="comment" items="${itemComment}">
+                    <h2><c:out value="${comment.title}"></c:out>   작성자 :
+                        <c:out value="${comment.memberId}"></c:out></h2>
+                    <p><c:out value="${comment.createdAt}"></c:out></p>
+                    <img src="${comment.FPath}" alt="...">
+                    <p><c:out value="${comment.comment}"></c:out></p>
+                </c:forEach>
+            </div>
         </div>
     </div>
 </section>

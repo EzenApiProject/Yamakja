@@ -4,43 +4,51 @@
     <!-- Item 테이블 가져오기 -->
     <select id="getItemList" resultType="com.yamakja.shop.domain.Item">
         SELECT *
-        FROM Item
+        FROM ITEM
     </select>
 
     <!-- 회원가입 -->
     <insert id="insertItem">
-        <selectKey keyProperty="itemId" resultType="integer" order="BEFORE">
-            select ITEM_SEQ.NEXTVAL from dual
-        </selectKey>
         INSERT INTO ITEM
-            (ITEMID, NAME, PRICE, DESCRIPTION, STOCK, CATEGORY, FNAME, FPATH)
+            (NAME, PRICE, DESCRIPTION, STOCK, CATEGORY, FNAME, FPATH)
         VALUES
-            (#{itemId}, #{name}, #{price}, #{description}, #{stock}, #{category}, #{fName}, #{fPath})
+            (#{name}, #{price}, #{description}, #{stock}, #{category}, #{fName}, #{fPath})
     </insert>
 
     <select id="getItemById" resultType="com.yamakja.shop.domain.Item">
         SELECT *
-        FROM Item
+        FROM ITEM
         WHERE itemId = #{itemId}
     </select>
 
     <update id="updateItem">
-        UPDATE Item
-        SET name = #{name},
-            Itemname = #{Itemname},
-            email = #{email},
-            password = #{password},
-            address = #{address},
-            phone = #{phone},
-            website = #{website},
-            company = #{company}
-        WHERE id = #{id}
+        UPDATE ITEM
+        SET NAME = #{name},
+            ITEMNAME = #{Itemname},
+            EMAIL = #{email},
+            PASSWORD = #{password},
+            ADDRESS = #{address},
+            PHONE = #{phone},
+            WEBSITE = #{website},
+            COMPANY = #{company}
+        WHERE ID = #{id}
     </update>
 
 
     <delete id="deleteItem">
         DELETE
-        FROM Item
-        WHERE id = #{id}
+        FROM ITEM
+        WHERE ID = #{id}
     </delete>
+
+    <select id="getItemComments" resultType="com.yamakja.shop.domain.ItemComment">
+        SELECT * FROM ITEMCOMMENT
+        WHERE ITEMID = #{itemId}
+    </select>
+
+    <insert id="addItemComments">
+        INSERT INTO ITEMCOMMENT
+        (MEMBERID, ITEMID, TITLE, COMMENT, FPATH, FNAME)
+        VALUES (#{memberId},#{itemId},#{title},#{comment},#{fPath},#{fName})
+    </insert>
 </mapper>
