@@ -87,11 +87,11 @@
                 <p class="lead itempage-text">${item.description}</p> <!-- 상품설명이 아래로 가야합니다! -->
             </div>
 
-            <form id="cartForm" class="d-flex" method="post">
+            <form action="/addCart/?itemId=${item.itemId}" class="d-flex" method="post">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="quantity" id="quantity" placeholder="1">
-                    <button class="btn btn-outline-secondary" type="submit" name="action" value="order">주문하기</button>
-                    <button class="btn btn-outline-secondary" type="submit" name="action" value="cart">장바구니</button>
+                    <input class="form-control" name="quantity" id="quantity" type="num" value="1">
+                    <button class="btn btn-outline-secondary" type="submit">주문하기</button>
+                    <button class="btn btn-outline-secondary" type="submit">장바구니</button>
                 </div>
             </form>
         </div>
