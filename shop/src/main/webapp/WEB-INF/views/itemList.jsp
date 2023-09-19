@@ -47,7 +47,7 @@
     <img src="../assets/img/banner.jpg" class="banner">
 </header>
 <section class="py-5">
-    <section class="py-4">
+    <section class="py-4 category">
         <div class="select">
             <select>
                 <option value="">모두 표시</option>
@@ -77,9 +77,9 @@
                         <img class="card-img-top" src="${item.FPath}" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
-                            <div class="text-center">
+                            <div class="iteminfo">
                                 <!-- Product name--><br><br>
-                                <h5 class="fw-bolder">${item.name}</h5>
+                                <h6>${item.name}</h6>
                                 <!-- Product price-->
                                 <br>
                                     ${item.price}
