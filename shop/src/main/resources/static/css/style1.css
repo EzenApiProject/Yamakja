@@ -285,6 +285,19 @@ tbody {
 }
 
 
+.changebtn {
+  margin-left: 80%;
+}
+
+.mypage-image {
+  width:150px;
+  height:80px;
+}
+
+.mypageitem {
+  border-bottom: 1px dotted;
+}
+
 
 
 
