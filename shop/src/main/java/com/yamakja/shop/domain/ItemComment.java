@@ -17,4 +17,5 @@ public class ItemComment {
     String fPath;
     String fName;
     Date createdAt;
+    int star;
 }

@@ -48,7 +48,7 @@
 
     <insert id="addItemComments">
         INSERT INTO ITEMCOMMENT
-        (MEMBERID, ITEMID, TITLE, COMMENT, FPATH, FNAME)
-        VALUES (#{memberId},#{itemId},#{title},#{comment},#{fPath},#{fName})
+        (MEMBERID, ITEMID, TITLE, COMMENT, FPATH, FNAME, STAR)
+        VALUES (#{memberId},#{itemId},#{title},#{comment},#{fPath},#{fName},#{star})
     </insert>
 </mapper>

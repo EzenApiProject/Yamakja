@@ -146,7 +146,7 @@
                                     뉴스 리스트
                                 </div>
                                 <div class="card-header" style="text-align: right;">
-                                    <button type="button" class="btn btn-primary">뉴스 등록</button>
+                                    <button type="button" class="btn btn-primary" onclick="location.href='/addNews'">뉴스 등록</button>
                                 </div>
                             </div>
                             
@@ -173,66 +173,20 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <th>1</th>
-                                            <th>동네가 흉흉하다</th>
-                                            <th>현재 살고 있는 이 곳이 과연 안전할까요?</th>
-                                            <th>
-                                                <div style="text-align : center;">
-                                                    <img src="assets/img/otherimage2.jpg" width="50"></th>
-                                                </div>
-                                            <th>www.news.com/1.html</th>
-                                            <th>20230723</th>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>자신의 몸은 자신이 지켜야 한다.</td>
-                                            <td>경찰이 신고 이후 도착하는 시간은 평균 5분이며, 길면...</td>
-                                            <td>
+                                    <c:forEach var="item" items="news">
+                                    <tr>
+                                        <th>${item.newsId}</th>
+                                        <th>${item.title}</th>
+                                        <th>${item.content}</th>
+                                        <th>
                                             <div style="text-align : center;">
-                                                <img src="assets/img/otherimage3.jpg" width="50"></td>
+                                                <img src="${news.fPath}" width="50">
                                             </div>
-                                            </td>
-                                            <td>www.news.com/2.html</td>
-                                            <td>20230724</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>지하철역 근처에 있는 우범지역</td>
-                                            <td>지하철역 입구에서 채 100미터도 떨어지지 않은 곳에...</td>
-                                            <td>
-                                            <div style="text-align : center;">
-                                                <img src="assets/img/otherimage4.jpg" width="50"></td>
-                                            </div>
-                                            </td>
-                                            <td>www.news.com/3.html</td>
-                                            <td>20230726</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>도대체 행안부는 무엇을 하고 있는가?</td>
-                                            <td>우리의 안전을 지키는 역할을 하는 정부부처의...</td>
-                                            <td>
-                                            <div style="text-align : center;">
-                                                <img src="assets/img/otherimage5.jpg" width="50"></td>
-                                            </div>
-                                            </td>
-                                            <td>www.news.com/4.html</td>
-                                            <td>20230728</td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>대항하지 말고 우선 도망쳐라.</td>
-                                            <td>갑작스런 상황, 이런 경우 패닉 상태에 빠져...</td>
-                                            <td>
-                                            <div style="text-align : center;">
-                                                <img src="assets/img/otherimage6.jpg" width="50"></td>
-                                            </div>
-                                            </td>
-                                            <td>www.news.com/5.html</td>
-                                            <td>20230730</td>
-                                        </tr>
-                                        
+                                        </th>
+                                        <th>${item.url}</th>
+                                        <th>${item.createdAt}</th>
+                                    </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
