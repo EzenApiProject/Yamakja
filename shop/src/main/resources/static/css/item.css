@@ -27,3 +27,8 @@
 .small-image:last-child {
   margin-right: 0; /* 마지막 작은 그림의 오른쪽 마진 제거 */
 }
+
+.relateditems {
+  width: 90%;
+  margin: auto;
+}
