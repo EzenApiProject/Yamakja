@@ -50,6 +50,7 @@ public class ItemController {
     public String item(Model model, @RequestParam("itemId") int itemId){
         model.addAttribute("item",itemService.getItemById(itemId));
         model.addAttribute("itemComment",itemService.getItemComments(itemId));
+        model.addAttribute("items",itemService.getItems());
         log.info(itemService.getItemComments(itemId).toString());
         return "/item";
     }
