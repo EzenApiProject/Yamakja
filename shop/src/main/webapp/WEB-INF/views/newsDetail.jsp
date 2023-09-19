@@ -20,7 +20,7 @@
             <div class="card-body">
                 <form>
                     <div class="mb-3 mt-3">
-                        <img src="${news.FPath}">
+                        <img class="m-auto" src="${news.FPath}" width="100%">
                     </div>
                     <div class="mb-3">
                         <label for="title" class="form-label">title</label> <input

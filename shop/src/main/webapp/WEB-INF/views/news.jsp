@@ -184,7 +184,7 @@
                             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                                 <title>Placeholder</title>
                                 <div style="width: 100%;height:100%;">
-                                    <img src="${item.FPath}" width="50">
+                                    <img src="${item.FPath}" width="100%">
                                 </div>
                             </svg>
                             <div class="card-body">

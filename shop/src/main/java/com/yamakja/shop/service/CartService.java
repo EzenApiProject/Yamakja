@@ -28,8 +28,8 @@ public class CartService {
         log.info(cartItemId.toString() + " cartItemID");
         List<Cart> carts = new ArrayList<>();
         for(int i=0; i<cartItemId.size();i++){
-            log.info(cartMapper.getItemsByCartItemId(cartItemId.get(i)).toString());
-            carts.add(cartMapper.getItemsByCartItemId(cartItemId.get(i)));
+            log.info(cartMapper.getItemsByCartItemId(cartItemId.get(i),memberId).toString());
+            carts.add(cartMapper.getItemsByCartItemId(cartItemId.get(i),memberId));
         }
         return carts;
     }
