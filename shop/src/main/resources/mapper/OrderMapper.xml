@@ -5,7 +5,7 @@
             INSERT INTO ORDERLIST
             (MEMBERID,ITEMID,QUANTITY)
             VALUES
-        <foreach collection="carts" item="carts" separator=" ">
+        <foreach collection="carts" item="carts" separator=",">
             (#{memberId},#{carts.itemId},#{carts.quantity})
         </foreach>
     </insert>

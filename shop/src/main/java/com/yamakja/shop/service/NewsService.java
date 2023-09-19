@@ -1,6 +1,7 @@
 package com.yamakja.shop.service;
 
 import com.yamakja.shop.domain.News;
+import com.yamakja.shop.domain.NewsComment;
 import com.yamakja.shop.mapper.NewsMapper;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ public class NewsService {
     private final NewsMapper newsMapper;
 
     public void addNews(News news, MultipartFile file) throws IOException {
-        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\imgs\\news";
+        String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\imgs";
 
         UUID uuid = UUID.randomUUID();
 
@@ -36,6 +37,22 @@ public class NewsService {
     }
 
     public List<News> getNews() {
+        log.info(newsMapper.getNews().toString());
         return newsMapper.getNews();
+    }
+
+    public List<NewsComment> getComment(){
+        log.info(newsMapper.getComment().toString());
+        return newsMapper.getComment();
+    }
+
+    public List<NewsComment> getCommentById(int newsId){
+        log.info(newsMapper.getCommentById(newsId).toString());
+        return newsMapper.getCommentById(newsId);
+    }
+
+    public News getNewsById(int newsId){
+        log.info(String.valueOf(newsMapper.getNewsById(newsId)));
+        return newsMapper.getNewsById(newsId);
     }
 }

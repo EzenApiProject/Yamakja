@@ -11,9 +11,9 @@ public class News {
     String newsId;
     String title;
     String content;
-    Date createdAt;
     String fPath;
     String fName;
     String url;
     String preview;
+    Date createdAt;
 }

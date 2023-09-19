@@ -18,13 +18,13 @@
     <input type="hidden" name="itemId" value="${itemId}">
     <div class="input-group mb-5">
         <label class="input-group-text" for="inputGroupSelect01">별점</label>
-        <select class="form-select" id="inputGroupSelect01" name="star" type="number">
+        <select class="form-select" id="inputGroupSelect01" name="star" type="text">
             <option selected>-----선택하기-----</option>
-            <option value=1>⭐</option>
-            <option value=2>⭐⭐</option>
-            <option value=3>⭐⭐⭐</option>
-            <option value=4>⭐⭐⭐⭐</option>
-            <option value=5>⭐⭐⭐⭐⭐</option>
+            <option value="⭐">⭐</option>
+            <option value="⭐⭐">⭐⭐</option>
+            <option value="⭐⭐⭐">⭐⭐⭐</option>
+            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
         </select>
     </div>
     <button id="btnInsert" class="insert" type="submit">등록</button>

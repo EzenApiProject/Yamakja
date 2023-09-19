@@ -4,6 +4,7 @@ import com.yamakja.shop.domain.Item;
 import com.yamakja.shop.service.CartService;
 import com.yamakja.shop.service.ItemService;
 import com.yamakja.shop.service.MemberService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +21,12 @@ import static com.fasterxml.jackson.databind.type.LogicalType.Map;
 
 @Slf4j
 @Controller
+@RequiredArgsConstructor
 public class CartController {
 
-    @Autowired
-    private CartService cartService;
 
-    @Autowired
-    private MemberService memberService;
+    private final CartService cartService;
+    private final MemberService memberService;
 
     @GetMapping("/cart")
     public String loadCart(Model model,@AuthenticationPrincipal OAuth2User oauthUser){
