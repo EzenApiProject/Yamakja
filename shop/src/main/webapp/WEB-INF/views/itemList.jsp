@@ -46,8 +46,7 @@
 <header>
     <img src="../assets/img/banner.jpg" class="banner">
 </header>
-<section class="py-5">
-    <section class="py-4">
+    <section class="category">
         <div class="select">
             <select>
                 <option value="">모두 표시</option>
@@ -66,6 +65,7 @@
             </ul>
         </div>
     </section>
+<%--<section class="py-5">--%>
     <div class="container px-4 px-lg-5 mt-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
@@ -77,11 +77,10 @@
                         <img class="card-img-top" src="${item.FPath}" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
-                            <div class="text-center">
+                            <div class="iteminfo">
                                 <!-- Product name--><br><br>
-                                <h5 class="fw-bolder">${item.name}</h5>
+                                <h6>${item.name}</h6>
                                 <!-- Product price-->
-                                <br>
                                     ${item.price}
                             </div>
                         </div>
@@ -93,7 +92,7 @@
 
         </div>
     </div>
-</section>
+<%--</section>--%>
 <!-- Footer-->
 <footer class="py-5 bg-dark">
     <div class="container">
