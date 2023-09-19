@@ -1,0 +1,29 @@
+.outline-div {
+  border: 2px solid #000;
+  padding: 10px;
+}
+
+.outline-div2 {
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+.itempage-text {
+  text-align: right;
+}
+
+/* 가로로 작은 그림들을 나란히 정렬 */
+.small-images {
+  display: flex;
+  justify-content: left; /* 가로 간격 조절을 위해 각 그림 사이에 공간 배분 */
+}
+
+/* 작은 그림의 스타일 (간격 조절을 위해 margin 추가) */
+.small-image {
+  margin-right: 10px; /* 작은 그림 사이의 오른쪽 간격 조절 */
+}
+
+/* 마지막 작은 그림의 오른쪽 마진을 없애기 위한 스타일 */
+.small-image:last-child {
+  margin-right: 0; /* 마지막 작은 그림의 오른쪽 마진 제거 */
+}
