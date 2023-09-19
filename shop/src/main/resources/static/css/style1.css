@@ -611,14 +611,17 @@ body {
 
 .dropdown {
   float: right;
-  margin-right: 6%;
-  margin-top: 5%;
-  vertical-align: center;
+  margin-right: 4%;
 }
 .select {
   float: left;
-  margin-left: 6%;
-  vertical-align: center;
+  margin-left: 4%;
+  margin-top: 1%;
+}
+.category {
+  height: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 
@@ -8293,10 +8296,10 @@ textarea.form-control-lg {
   padding-left: 1rem !important;
 }
 
-.px-4 {
-  padding-right: 1.5rem !important;
-  padding-left: 1.5rem !important;
-}
+/*.px-4 {*/
+/*  padding-right: 1.5rem !important;*/
+/*  padding-left: 1.5rem !important;*/
+/*}*/
 
 .px-5 {
   padding-right: 3rem !important;
