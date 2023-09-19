@@ -3,6 +3,7 @@ package com.yamakja.shop.service;
 import com.yamakja.shop.domain.Item;
 import com.yamakja.shop.domain.ItemComment;
 import com.yamakja.shop.mapper.ItemMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +16,10 @@ import java.util.UUID;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class ItemService {
 
-    @Autowired
-    private ItemMapper itemMapper;
+    private final ItemMapper itemMapper;
 
     public void insertItem(Item item, MultipartFile file) throws IOException {
         String projectPath = System.getProperty("user.dir") + "\\src\\main\\resources\\imgs";

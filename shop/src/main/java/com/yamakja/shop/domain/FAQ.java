@@ -7,13 +7,10 @@ import java.util.Date;
 
 @Data
 @Builder
-public class News {
-    String newsId;
+public class FAQ {
+    int FAQId;
+    String memberId;
     String title;
     String content;
-    String fPath;
-    String fName;
-    String url;
-    String preview;
     Date createdAt;
 }

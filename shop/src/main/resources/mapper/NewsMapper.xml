@@ -8,7 +8,20 @@
         VALUES
         (#{title},#{content},#{fName},#{fPath},#{url},#{preview})
     </insert>
+
     <select id="getNews" resultType="com.yamakja.shop.domain.News">
         SELECT * FROM NEWS
+    </select>
+
+    <select id="getComment" resultType="com.yamakja.shop.domain.NewsComment">
+        SELECT * FROM NEWSCOMMENT
+    </select>
+
+    <select id="getNewsById" resultType="com.yamakja.shop.domain.News">
+        SELECT * FROM NEWS WHERE NEWSID = ${newsId}
+    </select>
+
+    <select id="getCommentById" resultType="com.yamakja.shop.domain.NewsComment">
+        SELECT * FROM NEWSCOMMENT WHERE NEWSID = ${newsId}
     </select>
 </mapper>

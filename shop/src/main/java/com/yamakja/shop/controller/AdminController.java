@@ -3,6 +3,9 @@ package com.yamakja.shop.controller;
 import com.yamakja.shop.domain.Member;
 import com.yamakja.shop.service.ItemService;
 import com.yamakja.shop.service.MemberService;
+import com.yamakja.shop.service.NewsService;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -15,12 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
 @Controller
+@RequiredArgsConstructor
 public class AdminController {
 
-    @Autowired
-    private ItemService itemService;
-    @Autowired
-    private MemberService memberService;
+
+    private final ItemService itemService;
+    private final MemberService memberService;
+    private final NewsService newsService;
 
     @GetMapping("/admin")
     public String dashboard(Model model){
@@ -48,6 +52,7 @@ public class AdminController {
 
     @GetMapping("/newsAdmin")
     public String newsAdmin(Model model){
+        model.addAttribute("news",newsService.getNews());
         return"/table_newsAdmin";
     }
 

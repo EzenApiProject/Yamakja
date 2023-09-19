@@ -4,8 +4,11 @@ import com.yamakja.shop.domain.Member;
 import com.yamakja.shop.mapper.MemberMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,5 +48,16 @@ public class MemberService {
 
     public PasswordEncoder passwordEncoder() {
         return this.passwordEncoder;
+    }
+
+    public String getMemberId(@AuthenticationPrincipal OAuth2User oauthUser) {
+        String name ="";
+        if (oauthUser != null) {
+            name = oauthUser.getAttributes().get("email").toString();
+        } else {
+            name = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        }
+        log.info(name);
+        return name;
     }
 }

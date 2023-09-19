@@ -173,14 +173,14 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                    <c:forEach var="item" items="news">
+                                    <c:forEach var="item" items="${news}">
                                     <tr>
                                         <th>${item.newsId}</th>
                                         <th>${item.title}</th>
                                         <th>${item.content}</th>
                                         <th>
                                             <div style="text-align : center;">
-                                                <img src="${news.fPath}" width="50">
+                                                <img src="${item.FPath}" width="50">
                                             </div>
                                         </th>
                                         <th>${item.url}</th>

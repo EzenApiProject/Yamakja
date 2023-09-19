@@ -18,7 +18,7 @@
             B.*, A.QUANTITY
         FROM (SELECT CARTITEMID, SUM(QUANTITY) AS QUANTITY
                 FROM CARTITEM
-                WHERE CARTITEMID = #{itemId}
+                WHERE CARTITEMID = #{itemId} AND CARTMEMBERID = #{memberId}
                 GROUP BY CARTITEMID) AS A LEFT JOIN ITEM AS B
                 ON B.ITEMID = A.CARTITEMID
     </select>

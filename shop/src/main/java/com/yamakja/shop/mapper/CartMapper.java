@@ -12,7 +12,7 @@ import java.util.List;
 public interface CartMapper {
     void addCartItem(CartItem cartItem);
     List<Integer> getCartIdByMemberId(String memberId);
-    Cart getItemsByCartItemId(int itemId);
+    Cart getItemsByCartItemId(int itemId,String memberId);
     Integer hasItem(String memberId, int itemId);
     void updateCartItem(CartItem cartItem);
     BigInteger totalPrice(String memberId);
