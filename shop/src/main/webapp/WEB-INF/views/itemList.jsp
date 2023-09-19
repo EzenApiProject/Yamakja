@@ -46,7 +46,7 @@
 <header>
     <img src="../assets/img/banner.jpg" class="banner">
 </header>
-    <section class="category">
+    <section class="category mt-2">
         <div class="select">
             <select>
                 <option value="">모두 표시</option>
@@ -66,7 +66,7 @@
         </div>
     </section>
 <%--<section class="py-5">--%>
-    <div class="container px-4 px-lg-5 mt-5">
+    <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
             <c:forEach var="item" items="${items}">
@@ -76,7 +76,7 @@
                         <!-- Product image-->
                         <img class="card-img-top" src="${item.FPath}" alt="..." />
                         <!-- Product details-->
-                        <div class="card-body p-4">
+                        <div class="card-body">
                             <div class="iteminfo">
                                 <!-- Product name--><br><br>
                                 <h6>${item.name}</h6>
@@ -94,11 +94,13 @@
     </div>
 <%--</section>--%>
 <!-- Footer-->
-<footer class="py-5 bg-dark">
+<footer class="bg-dark">
     <div class="container">
+        <div class="footerinfo">
         <img class="footerlogo" src="../assets/img/logo.png">
         <p class="m-0 text-white">https://github.com/EzenApiProject</p>
         <p class="m-0 text-white">경기도 성남시 중원구 광명로 4 이젠아카데미</p>
+        </div>
     </div>
     <div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.1851849351115!2d127.12707597677145!3d37.432729831788144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca883df7418d1%3A0xfdd9d220bb6a8e91!2z6rK96riw64-EIOyEseuCqOyLnCDspJHsm5Dqtawg6rSR66qF66GcIDQ!5e0!3m2!1sko!2skr!4v1694566071535!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
