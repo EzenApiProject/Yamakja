@@ -39,14 +39,14 @@ public class FAQController {
     }
 
     @PostMapping("/addFAQ")
-    public String addFAQ(Model model, FAQ faq){
+    public String addFAQ(FAQ faq){
         FAQ newFAQ = FAQ.builder()
                         .title(faq.getTitle())
                         .content(faq.getContent())
                         .memberId(faq.getMemberId())
                         .build();
-        log.info(faq.toString());
-        faqService.addFAQ(faq);
+        log.info(newFAQ.toString());
+        faqService.addFAQ(newFAQ);
         return"/faq";
     }
 }
