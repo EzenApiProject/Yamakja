@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yamakja.shop.mapper.OrderMapper">
+    <insert id="saveOrder" parameterType="map">
+            INSERT INTO ORDERLIST
+            (MEMBERID,ITEMID,QUANTITY)
+            VALUES
+        <foreach collection="carts" item="carts" separator=" ">
+            (#{memberId},#{carts.itemId},#{carts.quantity})
+        </foreach>
+    </insert>
+    <select id="getOrderList" resultType="com.yamakja.shop.domain.OrderList">
+        SELECT MAX(ORDERID) AS ORDERID, STATUS, MEMBERID, CREATEDAT, ITEMID, SUM(QUANTITY) AS QUANTITY FROM ORDERLIST
+        WHERE MEMBERID = #{memberId}
+        GROUP BY STATUS,MEMBERID,CREATEDAT,ITEMID
+        ORDER BY CREATEDAT DESC
+    </select>
+</mapper>
