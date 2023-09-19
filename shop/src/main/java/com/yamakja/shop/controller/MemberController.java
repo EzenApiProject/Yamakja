@@ -45,7 +45,7 @@ public class MemberController {
             log.info(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
             model.addAttribute("member",memberService.getUserById((String) SecurityContextHolder.getContext().getAuthentication().getPrincipal()));
         }
-        return "home";
+        return "/addCart";
     }
 
     @GetMapping("/userList")

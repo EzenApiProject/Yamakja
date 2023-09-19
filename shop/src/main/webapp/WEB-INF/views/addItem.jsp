@@ -9,7 +9,7 @@
     <title>Home</title>
 </head>
 <body>
-    <h2>상품 목록</h2><a href="/login">로그인</a>
+    <h2>상품 목록</h2>
     <form action="/addItem" method="post" enctype="multipart/form-data">
         상품 이름 : <input type="text" name="name" id="name"><br>
         상품 수량 : <input type="number" name="stock" id="stock"><br>
