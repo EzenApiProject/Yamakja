@@ -118,9 +118,25 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <p class="fw-bolder text-break">${item.name}</p>
+
+
+                                <!-- 이후 new나 hot의 조건이 설정되면 변경-->
+                                <c:choose>
+                                    <c:when test="${item.itemId % 3 == 0}">
+                                        <img src="../imgs/icon/hot_tag_icon.jpg" width="25">
+                                    </c:when>
+                                    <c:when test="${item.itemId % 2 == 0}">
+                                        <img src="../imgs/icon/new_tag_icon.png" width="25">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <!-- 그 외의 경우 (홀수인 경우) 아무것도 출력되지 않음 -->
+                                    </c:otherwise>
+                                </c:choose>
+
                                 <!-- Product price-->
-                                ${item.price}
+                                    ${item.price}
                             </div>
+
                         </div>
                     </a>
                 </div>
@@ -129,7 +145,7 @@
             </c:forEach>
         </div>
             <div>
-                <c:forEach var="comment" items="${itemComment}">
+                <c:forEach var="comment" items="${itemComment}" begin="0" end="3">
                     <div class="row gx-4 gx-lg-5 outline-div2">
                         <div>
                             <p><span style="font-weight: bold">작성자</span> :
