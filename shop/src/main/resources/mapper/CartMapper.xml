@@ -27,11 +27,15 @@
         FROM CARTITEM
         WHERE CARTMEMBERID = #{memberId} AND CARTITEMID = #{itemId}
     </select>
-    <select id="totalPrice" resultType="java.math.BigInteger">
+    <select id="totalPrice" resultType="java.lang.Integer">
         SELECT SUM(ITEM.PRICE * CARTITEM.QUANTITY)
         FROM CARTITEM LEFT JOIN ITEM
         ON CARTITEM.CARTITEMID = ITEM.ITEMID
+<<<<<<< HEAD
+        WHERE CARTMEMBERID =  #{memberId}
+=======
         WHERE CARTMEMBERID = #{memberId}
+>>>>>>> cbb5d2f643b54ae0551b96932a48e7e57cf74fe6
     </select>
 
     <update id="updateCartItem">

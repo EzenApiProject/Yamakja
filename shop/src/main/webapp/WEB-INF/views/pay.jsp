@@ -8,11 +8,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link href="css/style1.css" rel="stylesheet" />
+<<<<<<< HEAD
+=======
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"
             integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
             crossorigin="anonymous">
     </script>
+>>>>>>> cbb5d2f643b54ae0551b96932a48e7e57cf74fe6
     <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 </head>
 <body>
@@ -49,6 +52,10 @@
 <header>
     <img src="../assets/img/banner.jpg" class="banner">
 </header>
+<<<<<<< HEAD
+
+=======
+>>>>>>> cbb5d2f643b54ae0551b96932a48e7e57cf74fe6
 
 <div class="buytotal">
 <div class="container">
@@ -114,6 +121,53 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+
+    <!-- cart -->
+    <section class="buyfinal">
+        <table>
+                <thead>
+                <tr>
+                    <td></td>
+                    <td><p>제품명</p></td>
+                    <td><p>가격</p></td>
+                    <td><p>수량</p></td>
+                </tr>
+                </thead>
+                <tbody>
+<c:forEach var="item" items="${carts}">
+                <tr class="cart__list__detail">
+                    <td><img class="cart-image" src="${item.FPath}" alt="이미지 준비중.."></td>
+                    <td><p>${item.name}</p>
+                    </td>
+                    <td class="cart__list__option">
+                        <p>${item.price}</p>
+                    </td>
+                    <td>
+                        <p>${item.quantity}</p>
+                    </td>
+                </tr>
+</c:forEach>
+                </tbody>
+        </table>
+        <div class="totalamount"><h3>총 결제금액</h3></div>
+        <div class="amount"><p>${total}</p></div>
+        <div class="amountbtn">
+            <div class="buy__mainbtns">
+                <button class="order" onclick="requestPay()">결제하기</button>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Footer-->
+<footer class="bg-dark">
+    <div class="container">
+        <div class="footerinfo">
+            <img class="footerlogo" src="../assets/img/logo.png">
+            <p class="m-0 text-white">https://github.com/EzenApiProject</p>
+            <p class="m-0 text-white">경기도 성남시 중원구 광명로 4 이젠아카데미</p>
+        </div>
+=======
 </div>
 
 <!-- cart -->
@@ -179,16 +233,26 @@
     <p class="m-0 text-white">https://github.com/EzenApiProject</p>
     <p class="m-0 text-white">경기도 성남시 중원구 광명로 4 이젠아카데미</p>
     </div>
+>>>>>>> cbb5d2f643b54ae0551b96932a48e7e57cf74fe6
     </div>
     <div class="map">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.1851849351115!2d127.12707597677145!3d37.432729831788144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca883df7418d1%3A0xfdd9d220bb6a8e91!2z6rK96riw64-EIOyEseuCqOyLnCDspJHsm5Dqtawg6rSR66qF66GcIDQ!5e0!3m2!1sko!2skr!4v1694566071535!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
+<<<<<<< HEAD
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<script>
+=======
     </footer>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <script>
+>>>>>>> cbb5d2f643b54ae0551b96932a48e7e57cf74fe6
     var IMP = window.IMP;
     IMP.init("imp41653616");
 
@@ -210,5 +274,9 @@
     });
     }
     </script>
+<<<<<<< HEAD
+</body>
+=======
     </body>
+>>>>>>> cbb5d2f643b54ae0551b96932a48e7e57cf74fe6
 </html>
