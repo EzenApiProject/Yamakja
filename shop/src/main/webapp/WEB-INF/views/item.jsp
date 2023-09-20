@@ -117,7 +117,7 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <p class="fw-bolder">${item.name}</p>
+                                <p class="fw-bolder text-break">${item.name}</p>
                                 <!-- Product price-->
                                 ${item.price}
                             </div>
@@ -128,89 +128,21 @@
 
             </c:forEach>
         </div>
-<%--        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-md-4">--%>
-<%--            <div class="col mb-5">--%>
-<%--                <div class="card">--%>
-<%--                    <a href="" style="text-decoration: none">--%>
-<%--                        <!-- Product image-->--%>
-<%--                        <img class="card-img-top" src="../assets/img/items/3.jpg" alt="..." />--%>
-<%--                        <!-- Product details-->--%>
-<%--                        <div class="card-body p-4">--%>
-<%--                            <div class="text-center">--%>
-<%--                                <!-- Product name-->--%>
-<%--                                <p class="fw-bolder">초소형<br>120데시벨<br>전자경보기</p>--%>
-<%--                                <!-- Product price-->--%>
-<%--                                8,000--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-<%--            <div class="col mb-5">--%>
-<%--                <div class="card">--%>
-<%--                    <a href="" style="text-decoration: none">--%>
-<%--                        <!-- Product image-->--%>
-<%--                        <img class="card-img-top" src="../assets/img/items/4.jpg" alt="..." />--%>
-<%--                        <!-- Product details-->--%>
-<%--                        <div class="card-body p-4">--%>
-<%--                            <div class="text-center">--%>
-<%--                                <!-- Product name-->--%>
-<%--                                <p class="fw-bolder">아이워너<br>130데시벨<br>초강력휘슬</p>--%>
-<%--                                <!-- Product price-->--%>
-<%--                                11,000--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-<%--            <div class="col mb-5">--%>
-<%--                <div class="card">--%>
-<%--                    <a href="" style="text-decoration: none">--%>
-<%--                        <!-- Product image-->--%>
-<%--                        <img class="card-img-top" src="../assets/img/items/5.jpg" alt="..." />--%>
-<%--                        <!-- Product details-->--%>
-<%--                        <div class="card-body p-4">--%>
-<%--                            <div class="text-center">--%>
-<%--                                <!-- Product name-->--%>
-<%--                                <p class="fw-bolder">호신용<br>주먹너클</p><br>--%>
-<%--                                <!-- Product price-->--%>
-<%--                                8,800--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-<%--            <div class="col mb-5">--%>
-<%--                <div class="card">--%>
-<%--                    <a href="" style="text-decoration: none">--%>
-<%--                        <!-- Product image-->--%>
-<%--                        <img class="card-img-top" src="../assets/img/items/6.jpg" alt="..." />--%>
-<%--                        <!-- Product details-->--%>
-<%--                        <div class="card-body p-4">--%>
-<%--                            <div class="text-center">--%>
-<%--                                <!-- Product name-->--%>
-<%--                                <p class="fw-bolder">초소형<br>캡사이신<br>스프레이</p>--%>
-<%--                                <!-- Product price-->--%>
-<%--                                18,000--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-            <div class="col mb-5">
+            <div>
                 <c:forEach var="comment" items="${itemComment}">
-                    <h2><c:out value="${comment.title}"></c:out>   작성자 :
-                        <c:out value="${comment.memberId}"></c:out></h2>
-                    <p><c:out value="${comment.createdAt}"></c:out></p>
-                    <img src="${comment.FPath}" alt="...">
-                    <p><c:out value="${comment.comment}"></c:out></p>
+                    <div class="row gx-4 gx-lg-5 outline-div2">
+                        <div>
+                            <p><span style="font-weight: bold">작성자</span> :
+                            <c:out value="${comment.memberId}"></c:out> - <c:out value="${comment.createdAt}"></c:out></p>
+                            <h2><c:out value="${comment.title}"></c:out>   </h2>
+                            <hr>
+                            <p><c:out value="${comment.comment}"></c:out></p>
+                            <img src="${comment.FPath}" alt="..." width="200">
+                        </div>
+                    </div>
                 </c:forEach>
             </div>
         </div>
-    </div>
 </section>
 <!-- Footer-->
 <footer class="py-5 bg-dark">
