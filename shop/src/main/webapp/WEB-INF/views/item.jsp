@@ -35,7 +35,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav2">
-                    <a href=""><img src="../assets/img/logo.png" class="logo"></a>
+                    <a href="/"><img src="../assets/img/logo.png" class="logo"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <li class="nav-item"><a class="nav-link" href="/faq">문의</a></li>
                     <li class="nav-item"><a class="nav-link" href="/news">뉴스</a></li>
@@ -110,7 +110,7 @@
         <c:forEach var="item" items="${items}" begin="1" end="10">
             <div class="col mb-5">
                 <div class="card">
-                    <a href="" style="text-decoration: none">
+                    <a href="/item/?itemId=${item.itemId}" style="text-decoration: none">
                         <!-- Product image-->
                         <img class="card-img-top" src="${item.FPath}" alt="..." />
                         <!-- Product details-->
