@@ -39,4 +39,19 @@
         WHERE CARTMEMBERID = #{cartMemberId}
         AND CARTITEMID = #{cartItemId}
     </update>
+
+    <select id="getQuantityById" resultType="java.lang.Integer">
+        SELECT QUANTITY FROM CARTITEM
+        WHERE CARTMEMBERID = #{memberId} AND CARTITEMID = #{itemId}
+    </select>
+
+    <update id="updateCartItemByCart">
+        UPDATE CARTITEM SET QUANTITY = #{quantity}
+        WHERE CARTMEMBERID = #{memberId} AND CARTITEMID = #{itemId}
+    </update>
+
+    <delete id="deleteCart">
+        DELETE FROM CARTITEM
+        WHERE CARTMEMBERID = #{memberId} AND CARTITEMID = #{cartId}
+    </delete>
 </mapper>
