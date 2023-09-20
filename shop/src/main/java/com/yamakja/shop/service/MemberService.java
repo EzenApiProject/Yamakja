@@ -2,6 +2,7 @@ package com.yamakja.shop.service;
 
 import com.yamakja.shop.domain.Member;
 import com.yamakja.shop.mapper.MemberMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -15,9 +16,11 @@ import java.util.List;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class MemberService {
-    @Autowired
-    private MemberMapper memberMapper;
+
+
+    private final MemberMapper memberMapper;
 
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 

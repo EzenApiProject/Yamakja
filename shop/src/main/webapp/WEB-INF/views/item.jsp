@@ -35,7 +35,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav2">
-                    <a href=""><img src="../assets/img/logo.png" class="logo"></a>
+                    <a href="/"><img src="../assets/img/logo.png" class="logo"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <li class="nav-item"><a class="nav-link" href="/faq">문의</a></li>
                     <li class="nav-item"><a class="nav-link" href="/news">뉴스</a></li>
@@ -58,7 +58,7 @@
     </div>
 </section>
 
-<div class="container px-4 px-lg-5 my-5 outline-div">
+<div class="container px-4 px-lg-5 my-4 outline-div">
     <div class="row gx-4 gx-lg-5">
         <div class="col-md-6">
             <div class="outline-div2">
@@ -90,8 +90,8 @@
             <form action="/addCart/?itemId=${item.itemId}" class="d-flex" method="post">
                 <div class="input-group">
                     <input class="form-control" name="quantity" id="quantity" type="num" value="1">
-                    <button class="btn btn-outline-secondary" type="submit">주문하기</button>
-                    <button class="btn btn-outline-secondary" type="submit">장바구니</button>
+                    <button class="btn btn-outline-secondary" name="direct" type="submit" value="true">주문하기</button>
+                    <button class="btn btn-outline-secondary" name="direct" type="submit" value="false">장바구니</button>
                 </div>
             </form>
         </div>
@@ -110,17 +110,33 @@
         <c:forEach var="item" items="${items}" begin="1" end="10">
             <div class="col mb-5">
                 <div class="card">
-                    <a href="" style="text-decoration: none">
+                    <a href="/item/?itemId=${item.itemId}" style="text-decoration: none">
                         <!-- Product image-->
                         <img class="card-img-top" src="${item.FPath}" alt="..." />
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <p class="fw-bolder">${item.name}</p>
+                                <p class="fw-bolder text-break">${item.name}</p>
+
+
+                                <!-- 이후 new나 hot의 조건이 설정되면 변경-->
+                                <c:choose>
+                                    <c:when test="${item.itemId % 3 == 0}">
+                                        <img src="../imgs/icon/hot_tag_icon.jpg" width="25">
+                                    </c:when>
+                                    <c:when test="${item.itemId % 2 == 0}">
+                                        <img src="../imgs/icon/new_tag_icon.png" width="25">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <!-- 그 외의 경우 (홀수인 경우) 아무것도 출력되지 않음 -->
+                                    </c:otherwise>
+                                </c:choose>
+
                                 <!-- Product price-->
-                                ${item.price}
+                                    ${item.price}
                             </div>
+
                         </div>
                     </a>
                 </div>
@@ -128,89 +144,21 @@
 
             </c:forEach>
         </div>
-<%--        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-md-4">--%>
-<%--            <div class="col mb-5">--%>
-<%--                <div class="card">--%>
-<%--                    <a href="" style="text-decoration: none">--%>
-<%--                        <!-- Product image-->--%>
-<%--                        <img class="card-img-top" src="../assets/img/items/3.jpg" alt="..." />--%>
-<%--                        <!-- Product details-->--%>
-<%--                        <div class="card-body p-4">--%>
-<%--                            <div class="text-center">--%>
-<%--                                <!-- Product name-->--%>
-<%--                                <p class="fw-bolder">초소형<br>120데시벨<br>전자경보기</p>--%>
-<%--                                <!-- Product price-->--%>
-<%--                                8,000--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-<%--            <div class="col mb-5">--%>
-<%--                <div class="card">--%>
-<%--                    <a href="" style="text-decoration: none">--%>
-<%--                        <!-- Product image-->--%>
-<%--                        <img class="card-img-top" src="../assets/img/items/4.jpg" alt="..." />--%>
-<%--                        <!-- Product details-->--%>
-<%--                        <div class="card-body p-4">--%>
-<%--                            <div class="text-center">--%>
-<%--                                <!-- Product name-->--%>
-<%--                                <p class="fw-bolder">아이워너<br>130데시벨<br>초강력휘슬</p>--%>
-<%--                                <!-- Product price-->--%>
-<%--                                11,000--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-<%--            <div class="col mb-5">--%>
-<%--                <div class="card">--%>
-<%--                    <a href="" style="text-decoration: none">--%>
-<%--                        <!-- Product image-->--%>
-<%--                        <img class="card-img-top" src="../assets/img/items/5.jpg" alt="..." />--%>
-<%--                        <!-- Product details-->--%>
-<%--                        <div class="card-body p-4">--%>
-<%--                            <div class="text-center">--%>
-<%--                                <!-- Product name-->--%>
-<%--                                <p class="fw-bolder">호신용<br>주먹너클</p><br>--%>
-<%--                                <!-- Product price-->--%>
-<%--                                8,800--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-<%--            <div class="col mb-5">--%>
-<%--                <div class="card">--%>
-<%--                    <a href="" style="text-decoration: none">--%>
-<%--                        <!-- Product image-->--%>
-<%--                        <img class="card-img-top" src="../assets/img/items/6.jpg" alt="..." />--%>
-<%--                        <!-- Product details-->--%>
-<%--                        <div class="card-body p-4">--%>
-<%--                            <div class="text-center">--%>
-<%--                                <!-- Product name-->--%>
-<%--                                <p class="fw-bolder">초소형<br>캡사이신<br>스프레이</p>--%>
-<%--                                <!-- Product price-->--%>
-<%--                                18,000--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </a>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-            <div class="col mb-5">
-                <c:forEach var="comment" items="${itemComment}">
-                    <h2><c:out value="${comment.title}"></c:out>   작성자 :
-                        <c:out value="${comment.memberId}"></c:out></h2>
-                    <p><c:out value="${comment.createdAt}"></c:out></p>
-                    <img src="${comment.FPath}" alt="...">
-                    <p><c:out value="${comment.comment}"></c:out></p>
+            <div>
+                <c:forEach var="comment" items="${itemComment}" begin="0" end="3">
+                    <div class="row gx-4 gx-lg-5 outline-div2">
+                        <div>
+                            <p><span style="font-weight: bold">작성자</span> :
+                            <c:out value="${comment.memberId}"></c:out> - <c:out value="${comment.createdAt}"></c:out></p>
+                            <h2><c:out value="${comment.title}"></c:out>   </h2>
+                            <hr>
+                            <p><c:out value="${comment.comment}"></c:out></p>
+                            <img src="${comment.FPath}" alt="..." width="200">
+                        </div>
+                    </div>
                 </c:forEach>
             </div>
         </div>
-    </div>
 </section>
 <!-- Footer-->
 <footer class="py-5 bg-dark">

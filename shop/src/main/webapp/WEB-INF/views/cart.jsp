@@ -48,6 +48,17 @@
     <img src="../assets/img/banner.jpg" class="banner">
 </header>
 <body>
+
+<section class="category">
+    <div class="select">
+
+    </div>
+    <div class="dropdown">
+        <ul class="dropdown-menu">
+        </ul>
+    </div>
+</section>
+
 <section class="cart">
     <table>
         <form>
