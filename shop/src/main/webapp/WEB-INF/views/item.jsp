@@ -58,7 +58,7 @@
     </div>
 </section>
 
-<div class="container px-4 px-lg-5 my-5 outline-div">
+<div class="container px-4 px-lg-5 my-4 outline-div">
     <div class="row gx-4 gx-lg-5">
         <div class="col-md-6">
             <div class="outline-div2">
