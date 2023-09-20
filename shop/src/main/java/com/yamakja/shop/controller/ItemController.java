@@ -4,6 +4,7 @@ import com.yamakja.shop.domain.Item;
 import com.yamakja.shop.domain.ItemComment;
 import com.yamakja.shop.service.ItemService;
 import com.yamakja.shop.service.MemberService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -20,12 +21,11 @@ import java.io.IOException;
 
 @Controller
 @Slf4j
+@RequiredArgsConstructor
 public class ItemController {
 
-    @Autowired
-    private ItemService itemService;
-    @Autowired
-    private MemberService memberService;
+    private final ItemService itemService;
+    private final MemberService memberService;
 
 
     @GetMapping("/addItem")

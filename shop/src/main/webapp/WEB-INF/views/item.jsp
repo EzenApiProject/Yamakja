@@ -90,8 +90,8 @@
             <form action="/addCart/?itemId=${item.itemId}" class="d-flex" method="post">
                 <div class="input-group">
                     <input class="form-control" name="quantity" id="quantity" type="num" value="1">
-                    <button class="btn btn-outline-secondary" type="submit">주문하기</button>
-                    <button class="btn btn-outline-secondary" type="submit">장바구니</button>
+                    <button class="btn btn-outline-secondary" name="direct" type="submit" value="true">주문하기</button>
+                    <button class="btn btn-outline-secondary" name="direct" type="submit" value="false">장바구니</button>
                 </div>
             </form>
         </div>

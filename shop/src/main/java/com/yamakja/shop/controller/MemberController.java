@@ -24,9 +24,9 @@ import java.util.jar.Attributes;
 
 @Slf4j
 @Controller
+@RequiredArgsConstructor
 public class MemberController {
 
-    @Autowired
     private MemberService memberService;
 
 

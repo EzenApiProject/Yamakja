@@ -17,10 +17,10 @@ import java.util.Map;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class CartService {
 
-    @Autowired
-    private CartMapper cartMapper;
+    private final CartMapper cartMapper;
 
 
     public List<Cart> getItemsByMemberId(String memberId){
