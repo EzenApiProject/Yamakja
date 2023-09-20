@@ -35,7 +35,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav2">
-                    <a href=""><img src="../assets/img/logo.png" class="logo"></a>
+                    <a href="/"><img src="../assets/img/logo.png" class="logo"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <li class="nav-item"><a class="nav-link" href="/faq">문의</a></li>
                     <li class="nav-item"><a class="nav-link" href="/news">뉴스</a></li>
@@ -110,7 +110,7 @@
         <c:forEach var="item" items="${items}" begin="1" end="10">
             <div class="col mb-5">
                 <div class="card">
-                    <a href="" style="text-decoration: none">
+                    <a href="/item/?itemId=${item.itemId}" style="text-decoration: none">
                         <!-- Product image-->
                         <img class="card-img-top" src="${item.FPath}" alt="..." />
                         <!-- Product details-->
@@ -118,9 +118,25 @@
                             <div class="text-center">
                                 <!-- Product name-->
                                 <p class="fw-bolder text-break">${item.name}</p>
+
+
+                                <!-- 이후 new나 hot의 조건이 설정되면 변경-->
+                                <c:choose>
+                                    <c:when test="${item.itemId % 3 == 0}">
+                                        <img src="../imgs/icon/hot_tag_icon.jpg" width="25">
+                                    </c:when>
+                                    <c:when test="${item.itemId % 2 == 0}">
+                                        <img src="../imgs/icon/new_tag_icon.png" width="25">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <!-- 그 외의 경우 (홀수인 경우) 아무것도 출력되지 않음 -->
+                                    </c:otherwise>
+                                </c:choose>
+
                                 <!-- Product price-->
-                                ${item.price}
+                                    ${item.price}
                             </div>
+
                         </div>
                     </a>
                 </div>
@@ -129,7 +145,7 @@
             </c:forEach>
         </div>
             <div>
-                <c:forEach var="comment" items="${itemComment}">
+                <c:forEach var="comment" items="${itemComment}" begin="0" end="3">
                     <div class="row gx-4 gx-lg-5 outline-div2">
                         <div>
                             <p><span style="font-weight: bold">작성자</span> :
