@@ -30,7 +30,8 @@
     <select id="totalPrice" resultType="java.math.BigInteger">
         SELECT SUM(ITEM.PRICE * CARTITEM.QUANTITY)
         FROM CARTITEM LEFT JOIN ITEM
-        ON CARTMEMBERID = 'pl1633@naver.com'
+        ON CARTITEM.CARTITEMID = ITEM.ITEMID
+        WHERE CARTMEMBERID = #{memberId}
     </select>
 
     <update id="updateCartItem">

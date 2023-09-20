@@ -37,6 +37,7 @@ public class CartService {
     public void addCartItem(int cartItemId, String cartMemberId, int quantity){
 
         Integer num = cartMapper.hasItem(cartMemberId,cartItemId);
+        log.info(String.valueOf(num));
         if (num != null) {
             CartItem cartItem = CartItem.builder()
                     .cartItemId(cartItemId)
