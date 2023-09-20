@@ -15,5 +15,5 @@ public interface CartMapper {
     Cart getItemsByCartItemId(int itemId,String memberId);
     Integer hasItem(String memberId, int itemId);
     void updateCartItem(CartItem cartItem);
-    BigInteger totalPrice(String memberId);
+    Integer totalPrice(String memberId);
 }
