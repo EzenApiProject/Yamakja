@@ -20,7 +20,7 @@ import java.util.List;
 public class MemberService {
 
 
-    private MemberMapper memberMapper;
+    private final MemberMapper memberMapper;
 
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
