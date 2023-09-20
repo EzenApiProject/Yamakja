@@ -61,10 +61,10 @@
 <div class="container px-4 px-lg-5 my-4 outline-div">
     <div class="row gx-4 gx-lg-5">
         <div class="col-md-6">
-            <div class="outline-div2">
+            <div class="">
                 <img class="card-img-top mb-5 mb-md-0" src="${item.FPath}" alt="이미지 준비중.." />
             </div>
-            <div class="outline-div2 small-images">
+            <div class="small-images">
                 <div class="outline-div2 small-images">
                     <img class="" src="${item.FPath}" height="100" alt="이미지 준비중.." />
                 </div>
