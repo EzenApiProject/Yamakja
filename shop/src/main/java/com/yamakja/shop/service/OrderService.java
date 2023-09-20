@@ -18,16 +18,18 @@ public class OrderService {
     private final CartMapper cartMapper;
 
     public void saveOrder(String memberId,List<Cart> carts) throws Exception{
-
         for(Cart cart : carts){
-            log.info(cartMapper.getQuantityById(cart.getItemId(),memberId).toString());
-            log.info(String.valueOf(cart.getQuantity()));
-            if(cartMapper.getQuantityById(cart.getItemId(),memberId) > cart.getQuantity()){
-                cartMapper.updateCartItemByCart(cart,memberId);
-            }else{
-                cartMapper.deleteCart(cart.getItemId(),memberId);
+            if(cartMapper.hasCart(memberId,cart.getItemId())){
+                log.info(cartMapper.getQuantityById(cart.getItemId(),memberId).toString());
+                log.info(String.valueOf(cart.getQuantity()));
+                if(cartMapper.getQuantityById(cart.getItemId(),memberId) > cart.getQuantity()){
+                    cartMapper.updateCartItemByCart(cart,memberId);
+                }else{
+                    cartMapper.deleteCart(cart.getItemId(),memberId);
+                }
             }
         }
+        log.info(carts.toString());
         orderMapper.saveOrder(memberId,carts);
     }
     public List<OrderList> getOrderList(String memberId) throws Exception {

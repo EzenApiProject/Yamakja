@@ -54,4 +54,8 @@
         DELETE FROM CARTITEM
         WHERE CARTMEMBERID = #{memberId} AND CARTITEMID = #{cartId}
     </delete>
+
+    <select id="hasCart" resultType="java.lang.Boolean">
+        SELECT * FROM CARTITEM WHERE CARTMEMBERID = #{memberId} AND CARTITEMID = #{itemId}
+    </select>
 </mapper>

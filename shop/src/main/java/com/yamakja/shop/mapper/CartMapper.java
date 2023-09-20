@@ -19,4 +19,6 @@ public interface CartMapper {
     BigInteger totalPrice(String memberId);
     Integer getQuantityById(int itemId,String memberId);
     void deleteCart(int cartId, String memberId);
+
+    Boolean hasCart(String memberId,Integer itemId);
 }
