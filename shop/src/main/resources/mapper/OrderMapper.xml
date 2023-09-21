@@ -10,9 +10,14 @@
         </foreach>
     </insert>
     <select id="getOrderList" resultType="com.yamakja.shop.domain.OrderList">
-        SELECT MAX(ORDERID) AS ORDERID, STATUS, MEMBERID, CREATEDAT, ITEMID, SUM(QUANTITY) AS QUANTITY FROM ORDERLIST
+        SELECT MIN(ORDERID) AS ORDERID, STATUS, MEMBERID, CREATEDAT, ITEMID, SUM(QUANTITY) AS QUANTITY FROM ORDERLIST
         WHERE MEMBERID = #{memberId}
         GROUP BY STATUS,MEMBERID,CREATEDAT,ITEMID
-        ORDER BY CREATEDAT DESC
+        ORDER BY CREATEDAT ASC,ITEMID ASC
+    </select>
+
+    <select id="getOrderListAll" resultType="com.yamakja.shop.domain.OrderList">
+        SELECT * FROM ORDERLIST
+        WHERE MEMBERID = #{memberId}
     </select>
 </mapper>

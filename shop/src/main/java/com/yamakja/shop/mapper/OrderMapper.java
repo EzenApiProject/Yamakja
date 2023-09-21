@@ -10,4 +10,6 @@ import java.util.List;
 public interface OrderMapper {
     void saveOrder(String memberId,List<Cart> carts) throws Exception;
     List<OrderList> getOrderList(String memberId) throws Exception;
+
+    List<OrderList> getOrderListAll(String memberId) throws Exception;
 }

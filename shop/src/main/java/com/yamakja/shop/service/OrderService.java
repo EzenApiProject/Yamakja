@@ -37,4 +37,8 @@ public class OrderService {
         log.info(order.toString());
         return order;
     }
+
+    public List<OrderList> getOrderListAll(String memberId) throws Exception{
+        return orderMapper.getOrderListAll(memberId);
+    }
 }

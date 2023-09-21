@@ -71,7 +71,6 @@ public class AdminController {
         List<Member> memberList = memberService.getUserList();
         for (Member member : memberList) {
             orderList1 = orderService.getOrderList(member.getId());
-
             for (OrderList orderList : orderList1){
                 orderList2.add(orderList);
             }

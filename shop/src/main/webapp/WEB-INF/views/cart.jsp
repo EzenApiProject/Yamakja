@@ -61,7 +61,7 @@
 
 <section class="cart">
     <table>
-        <form>
+        <form action="/pay" method="POST">
             <thead>
             <tr class="tabletop">
                 <td></td>
@@ -76,9 +76,15 @@
             <c:forEach var="item" items="${carts}">
 
             <tr class="cart__list__detail">
-                <td><input type="checkbox" name="check" class="checkbox"></td>
-                <td><img class="cart-image" src="${item.FPath}" alt=""></td>
-                <td colspan="3"><p><a href="/item/?itemId=${item.itemId}">${item.name}</a></p>
+                <td>
+                    <input type="checkbox" name="check" class="checkbox">
+                    <input type="hidden" name="itemId" value="${item.itemId}">
+                </td>
+                <td>
+                    <img class="cart-image" src="${item.FPath}" alt="">
+                </td>
+                <td colspan="3">
+                    <p><a href="/item/?itemId=${item.itemId}">${item.name}</a></p>
                 </td>
                 <td class="cart__list__option">
                     <p>${item.price}</p>
