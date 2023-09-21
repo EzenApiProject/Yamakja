@@ -176,14 +176,5 @@
 <!-- Core theme JS-->
 <script src="../js/scripts.js"></script>
 
-<script>
-    // JavaScript를 사용하여 quantity 값을 설정
-    var itemQuantity = 10; // 원하는 수량으로 변경
-
-    // quantity 값을 폼의 action 속성에 추가
-    document.getElementById("cartForm").action = "/addCart/?itemId=${item.itemId};
-        <%--document.getElementById("cartForm").action = "/addCart/?itemId=${item.itemId}&quantity=" + itemQuantity;--%>
-</script>
-
 </body>
 </html>
