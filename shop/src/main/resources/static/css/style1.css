@@ -50,11 +50,27 @@ body {
   transform:translate(-50%, 0);
 }
 
+.logo {
+  cursor: pointer;
+}
 
 
+.btn-section button {
+  background-color: #f5c2c7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  width: 95px;
+  height: 30px;
+}
 
 
-
+.newsline {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 2%;
+}
 
 
 
