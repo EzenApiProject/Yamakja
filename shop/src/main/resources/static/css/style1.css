@@ -226,9 +226,6 @@ body {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  /*-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);*/
-  /*-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);*/
-  /*box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)*/
 }
 
 
@@ -286,6 +283,10 @@ table {
   font-size: 14px;
 }
 
+.tabletop {
+  border-bottom: 1px solid lightgrey;
+}
+
 thead {
   font-weight: bold;
   border-bottom: 1px solid lightgrey;
@@ -300,7 +301,6 @@ tbody {
 }
 
 .cart__list__detail>td {
-  /*padding: 15px 0px;*/
   border-bottom: 1px solid lightgrey;
 }
 
@@ -331,13 +331,24 @@ tbody {
 }
 
 .cart__list__detail :nth-child(5) button {
-  background-color: darkgray;
+  background-color: #f5c2c7;
   color: white;
   border: none;
-  border-radius: 20px;
-  padding: 4px 8px;
+  border-radius: 50%;
   font-size: 12px;
-  margin-top: 5px;
+}
+
+.cart__list__detail :nth-child(6) button {
+  background-color: #f5c2c7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.cart__list__detail a {
+  text-decoration: none;
+  font-weight: bold;
 }
 
 

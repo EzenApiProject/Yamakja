@@ -34,7 +34,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav2">
-                    <a href=""><img src="../assets/img/logo.png" class="logo"></a>
+                    <img src="../assets/img/logo.png" class="logo" onclick="location.href='/'">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <li class="nav-item"><a class="nav-link" href="#!">문의</a></li>
                     <li class="nav-item"><a class="nav-link" href="/news">뉴스</a></li>
@@ -63,8 +63,8 @@
     <table>
         <form>
             <thead>
-            <tr>
-                <td><input type="checkbox" class="check"></td>
+            <tr class="tabletop">
+                <td></td>
                 <td colspan="4"><p>제품명</p></td>
                 <td><p>가격</p></td>
                 <td><p>수량</p></td>
@@ -103,7 +103,7 @@
         </form>
     </table>
     <div class="card-header" style="text-align: right;">
-        선택 물품 합계 가격: <span id="total">0</span>
+        총 합계: <span id="total">0</span>
     </div>
     <div class="cart__mainbtns">
         <button class="order" onclick="location.href='/pay'">구매하기
