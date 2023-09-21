@@ -50,49 +50,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <!-- <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div> -->
+
                             <div class="sb-sidenav-menu-heading">Admin</div>
                             <!-- <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
@@ -120,10 +78,7 @@
                             </a>
                         </div>
                     </div>
-                    <!-- <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
-                    </div> -->
+
                 </nav>
             </div>
             <div id="layoutSidenav_content">
@@ -145,9 +100,9 @@
                                     <i class="fas fa-table me-1"></i>
                                     주문 리스트 (전체)
                                 </div>
-                                <div class="card-header" style="text-align: right;">
-                                    <button type="button" class="btn btn-primary">선택 주문 배송 완료 처리</button>
-                                </div>
+<%--                                <div class="card-header" style="text-align: right;">--%>
+<%--                                    <button type="button" class="btn btn-primary">선택 주문 배송 완료 처리</button>--%>
+<%--                                </div>--%>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -178,61 +133,20 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                        <c:forEach var="index" items="${orderlistAll}" varStatus="status">
                                         <tr>
                                             <td><input type="checkbox" name="selected[]" value="1"></td>
-                                            <td>1</td>
-                                            <td>2024-06-06</td>
-                                            <td>호신용 티타늄 삼단봉</td>
-                                            <td>24000</td>
-                                            <td>1</td>
-                                            <td>24000</td>
-                                            <td>abc123</td>
-                                            <td>배송대기</td>
+                                            <td>${index.orderId}</td>
+                                            <td>${index.createdAt}</td>
+                                            <td>${items[index.itemID].name}</td>
+                                            <td>${items[index.itemID].price}</td>
+                                            <td>${index.quantity}</td>
+                                            <td>${items[index.itemID].price*index.quantity}</td>
+                                            <td>${index.memberId}</td>
+                                            <td>${index.status}</td>
                                         </tr>
-                                        <tr>
-                                            <td><input type="checkbox" name="selected[]" value="1"></td>
-                                            <td>1</td>
-                                            <td>2024-06-06</td>
-                                            <td>호신용 주먹너클</td>
-                                            <td>8800</td>
-                                            <td>1</td>
-                                            <td>8800</td>
-                                            <td>abc123</td>
-                                            <td>배송대기</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td>2</td>
-                                            <td>2024-06-07</td>
-                                            <td>호신용 티타늄 삼단봉</td>
-                                            <td>24000</td>
-                                            <td>2</td>
-                                            <td>48000</td>
-                                            <td>test12</td>
-                                            <td>배송완료</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td>3</td>
-                                            <td>2024-06-08</td>
-                                            <td>호신용 주먹너클</td>
-                                            <td>8800</td>
-                                            <td>3</td>
-                                            <td>26400</td>
-                                            <td>bias654@gmail.com</td>
-                                            <td>배송완료</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td>4</td>
-                                            <td>2024-06-09</td>
-                                            <td>호신용 주먹너클</td>
-                                            <td>8800</td>
-                                            <td>1</td>
-                                            <td>8800</td>
-                                            <td>tbsb132@gmail.com</td>
-                                            <td>배송완료</td>
-                                        </tr>
+                                        </c:forEach>
+
 
                                     </tbody>
                                 </table>
@@ -240,18 +154,7 @@
                         </div>
                     </div>
                 </main>
-                <!-- <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer> -->
+
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
