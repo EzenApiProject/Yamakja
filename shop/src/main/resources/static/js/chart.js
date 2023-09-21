@@ -9,7 +9,7 @@ var listItems = document.querySelectorAll("#myList li");
 
 listItems.forEach(function(order) {
     var text = order.textContent;
-    console.log(text);
+    // console.log(text);
     var trimmedString = text.replace(/^OrderList\(|\)$/g, '');
 
 // 쉼표(,)로 분리하여 키-값 쌍 생성
@@ -25,7 +25,7 @@ listItems.forEach(function(order) {
         var value = parts[1].trim();
         resultObject[key] = value;
     });
-
+    // console.log(resultObject);
     orderList.push(resultObject);
 });
 
@@ -98,7 +98,7 @@ var myLineChart = new Chart(ctx, {
             yAxes: [{
                 ticks: {
                     min: 0,
-                    max: 20,
+                    max: 30,
                     maxTicksLimit: 5
                 },
                 gridLines: {

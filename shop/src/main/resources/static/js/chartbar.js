@@ -27,6 +27,7 @@ listItems.forEach(function(order) {
         resultObject[key] = value;
     });
 
+    // console.log(resultObject);
     orderList.push(resultObject);
 });
 
@@ -69,9 +70,11 @@ orderList.forEach(function(item) {
             itemID: item.itemID,
             quantity: 0
         };
+        // console.log(item.createdAt,item.itemID, groupedData[key].quantity)
     }
 
     groupedData[key].quantity += parseInt(item.quantity);
+    // console.log(item.createdAt,item.itemID, groupedData[key].quantity)
 });
 
 // 결과 출력
@@ -83,7 +86,7 @@ for (var key in groupedData) {
     }
 }
 
-// console.log(resultArray);
+console.log(resultArray);
 
 // createdAt를 기준으로 그룹화하고 quantity 합산
 var groupedData = {};
@@ -101,7 +104,7 @@ resultArray.forEach(function(item) {
     }
 
     groupedData[key].sum += getPriceByItemId(item.itemID) * item.quantity; // itemID와 quantity 값을 곱한 후 더함
-
+    console.log(item.createdAt, getPriceByItemId(item.itemID) * item.quantity)
 });
 
 // 결과 출력
@@ -182,7 +185,7 @@ var myLineChart = new Chart(ctx, {
             yAxes: [{
                 ticks: {
                     min: 0,
-                    max: 3000000,
+                    max: 2500000,
                     maxTicksLimit: 10
                 },
                 gridLines: {
