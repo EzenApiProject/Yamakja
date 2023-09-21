@@ -138,10 +138,10 @@
                                             <td><input type="checkbox" name="selected[]" value="1"></td>
                                             <td>${index.orderId}</td>
                                             <td>${index.createdAt}</td>
-                                            <td>${items[index.itemID].name}</td>
-                                            <td>${items[index.itemID].price}</td>
+                                            <td>${items[(index.itemID)-1].name}</td>
                                             <td>${index.quantity}</td>
-                                            <td>${items[index.itemID].price*index.quantity}</td>
+                                            <td>${items[(index.itemID)-1].price}</td>
+                                            <td>${items[(index.itemID)-1].price*index.quantity}</td>
                                             <td>${index.memberId}</td>
                                             <td>${index.status}</td>
                                         </tr>
