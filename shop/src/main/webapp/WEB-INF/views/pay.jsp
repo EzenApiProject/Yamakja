@@ -8,11 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link href="css/style1.css" rel="stylesheet" />
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
-            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-            crossorigin="anonymous">
-    </script>
     <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 </head>
 <body>
@@ -49,6 +44,8 @@
 <header>
     <img src="../assets/img/banner.jpg" class="banner">
 </header>
+
+
 <div class="buytotal">
     <div class="container">
         <div class="buyinfo">
@@ -113,53 +110,17 @@
                 </div>
             </div>
         </div>
-        <!-- cart -->
-        <section class="buyfinal">
-            <table>
-                <thead>
-                <tr>
-                    <td></td>
-                    <td><p>제품명</p></td>
-                    <td><p>가격</p></td>
-                    <td><p>수량</p></td>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="item" items="${carts}">
-                    <tr class="cart__list__detail">
-                        <td><img class="cart-image" src="${item.FPath}" alt="이미지 준비중.."></td>
-                        <td><p>${item.name}</p>
-                        </td>
-                        <td class="cart__list__option">
-                            <p>${item.price}</p>
-                        </td>
-                        <td>
-                            <p>${item.quantity}</p>
-                        </td>
-                    </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-            <div class="totalamount"><h3>총 결제금액</h3></div>
-            <div class="amount"><p>${total}</p></div>
-            <div class="amountbtn">
-                <div class="buy__mainbtns">
-                    <button class="order" onclick="requestPay()">결제하기</button>
-                </div>
-            </div>
-        </section>
     </div>
-    <!-- Footer-->
+
     <!-- cart -->
     <section class="buyfinal">
         <table>
             <thead>
             <tr>
-                <td><input type="checkbox" class="check"></td>
-                <td colspan="2"><p>제품명</p></td>
+                <td></td>
+                <td><p>제품명</p></td>
                 <td><p>가격</p></td>
                 <td><p>수량</p></td>
-                <td><p>배송비</p></td>
             </tr>
             </thead>
             <tbody>
@@ -173,9 +134,6 @@
                     </td>
                     <td>
                         <p>${item.quantity}</p>
-                    </td>
-                    <td>
-                        <p>무료</p>
                     </td>
                 </tr>
             </c:forEach>

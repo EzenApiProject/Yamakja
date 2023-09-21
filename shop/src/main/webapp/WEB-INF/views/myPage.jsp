@@ -67,17 +67,17 @@
                         </div>
                     </section>
                     <section class="infochange">
-                        <button class="btn btn-primary changebtn" type="button" onclick="location.href='update'">개인정보변경</button>
+                        <button class="changebtn" type="button" onclick="location.href='update'">개인정보변경</button>
                     </section>
-                    <hr><br>
 
 
 
 
-                    <table>
-                        <form>
+
+                    <form>
+                        <table>
                             <thead class="buyhistory">
-                            <legend class="text-lg-center">구매내역</legend>
+                            <legend class="text-lg-center ordertitle">구매내역</legend>
                             </thead>
                             <tbody>
 <c:forEach var="index" items="${orderIndex}" varStatus="status">
@@ -144,8 +144,7 @@
         </td>
     </tr>
     </c:forEach>
-                            </tbody>
-                        </form>
+                        </tbody>
                     </table>
                 </form>
 

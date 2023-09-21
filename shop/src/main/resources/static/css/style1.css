@@ -222,12 +222,13 @@ body {
   margin-top: 80px;
   padding: 32px;
   background: #fff;
+  border: 0.5px solid #e5e5e5;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+  /*-webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);*/
+  /*-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);*/
+  /*box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)*/
 }
 
 
@@ -355,14 +356,32 @@ tbody {
   font-size: 16px;
   margin: auto;
   border-radius: 5px;
-  background-color: limegreen;
+  background-color: #f5c2c7;
   color: white;
   border: none;
 }
 
+.cart__del {
+  border: none;
+  border-radius: 5px;
+  background-color: #f5c2c7;
+  color: white;
+}
+
+
+.infochange{
+  float: right;
+}
+
 
 .changebtn {
-  margin-left: 80%;
+  width: 160px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f5c2c7;
+  color: white;
+  font-weight: bold;
 }
 
 .mypage-image {
@@ -372,6 +391,10 @@ tbody {
 
 .mypageitem {
   border-bottom: 1px dotted;
+}
+
+.ordertitle {
+  margin-top: 10%;
 }
 
 
@@ -692,10 +715,11 @@ iframe{
 .logout , .delete {
   width: 80px;
   height: 30px;
-  border: 0.1px solid #babbbc;
-  border-radius: 5px 5px 5px 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f5c2c7;
+  color: white;
   font-weight: bold;
-  color: #6c757d;
 }
 
 .cartbtn{
