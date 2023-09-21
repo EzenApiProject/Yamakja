@@ -196,7 +196,7 @@
                                                 <td>
                                                     <div style="text-align : center;">
                                                     <a href="item/?itemId=${item.itemId}">
-                                                    <img src="${item.FPath}" width="50">
+                                                    <img src="${item.FPath}" width="100">
                                                     </a>
                                                     </div>
                                                 </td>
