@@ -57,7 +57,7 @@ public class CartService {
         }
     }
 
-    public BigInteger getTotal(String memberId){
+    public Integer getTotal(String memberId){
         return cartMapper.totalPrice(memberId);
     }
 }

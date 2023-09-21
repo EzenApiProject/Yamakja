@@ -33,7 +33,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav2">
-                    <a href=""><img src="../assets/img/logo.png" class="logo"></a>
+                    <img src="../assets/img/logo.png" class="logo" onclick="location.href='/'">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <li class="nav-item"><a class="nav-link" href="#!">문의</a></li>
                     <li class="nav-item"><a class="nav-link" href="/news">뉴스</a></li>
@@ -47,6 +47,7 @@
     <img src="../assets/img/banner.jpg" class="banner">
 </header>
     <section class="category mt-2">
+        <section class="category-bar">
         <div class="select">
             <select>
                 <option value="">모두 표시</option>
@@ -64,8 +65,9 @@
                 <li><a class="dropdown-item" href="#">등록 일자 순</a></li>
             </ul>
         </div>
+        </section>
     </section>
-<%--<section class="py-5">--%>
+
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
