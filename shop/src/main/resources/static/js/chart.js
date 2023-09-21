@@ -51,7 +51,7 @@ var listCount = [];
 var count = 0; // 출력된 값의 개수를 세는 변수
 for (var key in uniqueCounts) {
     if (uniqueCounts.hasOwnProperty(key)) {
-        console.log(key + ": " + uniqueCounts[key]);
+        // console.log(key + ": " + uniqueCounts[key]);
         count++;
 
         listDate.push(key);
