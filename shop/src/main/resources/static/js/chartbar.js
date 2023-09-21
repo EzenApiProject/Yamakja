@@ -2,65 +2,153 @@
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
 
-// // JavaScript 파일에서 데이터 가져오기
-//
-// var orderList = [];
-// var listItems = document.querySelectorAll("#myList li");
-//
-// listItems.forEach(function(item) {
-//     var text = item.textContent;
-//     var trimmedString = text.replace(/^OrderList\(|\)$/g, '');
-//
-// // 쉼표(,)로 분리하여 키-값 쌍 생성
-//     var keyValuePairs = trimmedString.split(', ');
-//
-// // 결과 객체 초기화
-//     var resultObject = {};
-//
-// // 각 키-값 쌍을 객체에 추가
-//     keyValuePairs.forEach(function(pair) {
-//         var parts = pair.split('=');
-//         var key = parts[0].trim();
-//         var value = parts[1].trim();
-//         resultObject[key] = value;
-//     });
-//
-//     orderList.push(resultObject);
-// });
-//
-// console.log(orderList[0]);
-//
-// // 유니크한 값과 개수를 저장할 객체 생성
-// var uniqueCounts = {};
-//
-// // 리스트 순회
-// orderList.forEach(function(item) {
-//     var key = item.createdAt.toString(); // a 속성 값을 문자열로 변환하여 키로 사용
-//     if (!uniqueCounts[key]) {
-//         uniqueCounts[key] = 1; // 유니크한 값이 처음 나오면 1로 초기화
-//     } else {
-//         uniqueCounts[key]++; // 이미 나온 값이면 개수 증가
-//     }
-// });
-//
-// var listDate = [];
-// var listCount = [];
-//
-// // 객체에서 값 추출 및 로그로 출력 (5개만)
-// var count = 0; // 출력된 값의 개수를 세는 변수
-// for (var key in uniqueCounts) {
-//     if (uniqueCounts.hasOwnProperty(key)) {
-//         console.log(key + ": " + uniqueCounts[key]);
-//         count++;
-//
-//         listDate.push(key);
-//         listCount.push(uniqueCounts[key]);
-//
-//         if (count >= 5) {
-//             break; // 5개 이상 출력되면 루프 종료
-//         }
-//     }
-// }
+// JavaScript 파일에서 데이터 가져오기
+
+var orderList = [];
+var listItems = document.querySelectorAll("#myList li");
+var itemList = [];
+var listItems2 = document.querySelectorAll("#myList2 li");
+
+listItems.forEach(function(order) {
+    var text = order.textContent;
+    var trimmedString = text.replace(/^OrderList\(|\)$/g, '');
+
+// 쉼표(,)로 분리하여 키-값 쌍 생성
+    var keyValuePairs = trimmedString.split(', ');
+
+// 결과 객체 초기화
+    var resultObject = {};
+
+// 각 키-값 쌍을 객체에 추가
+    keyValuePairs.forEach(function(pair) {
+        var parts = pair.split('=');
+        var key = parts[0].trim();
+        var value = parts[1].trim();
+        resultObject[key] = value;
+    });
+
+    orderList.push(resultObject);
+});
+
+// console.log(listItems2);
+
+listItems2.forEach(function(item) {
+    var text = item.textContent;
+    // console.log(text);
+    var trimmedString = text.replace(/^Item\(|\)$/g, '');
+
+// 쉼표(,)로 분리하여 키-값 쌍 생성
+    var keyValuePairs = trimmedString.split(', ');
+
+// 결과 객체 초기화
+    var resultObject = {};
+
+// 각 키-값 쌍을 객체에 추가
+    keyValuePairs.forEach(function(pair) {
+        var parts = pair.split('=');
+        // console.log(parts[0], parts[1]);
+        var key = parts[0].trim();
+        var value = parts[1].trim();
+        resultObject[key] = value;
+    });
+
+    itemList.push(resultObject);
+});
+
+// console.log(itemList);
+
+// createdAT 및 itemId를 기준으로 그룹화하고 quantity 합산
+var groupedData = {};
+
+orderList.forEach(function(item) {
+    var key = item.createdAt + "-" + item.itemID;
+
+    if (!groupedData[key]) {
+        groupedData[key] = {
+            createdAt: item.createdAt,
+            itemID: item.itemID,
+            quantity: 0
+        };
+    }
+
+    groupedData[key].quantity += parseInt(item.quantity);
+});
+
+// 결과 출력
+var resultArray = [];
+
+for (var key in groupedData) {
+    if (groupedData.hasOwnProperty(key)) {
+        resultArray.push(groupedData[key]);
+    }
+}
+
+// console.log(resultArray);
+
+// createdAt를 기준으로 그룹화하고 quantity 합산
+var groupedData = {};
+var datelist2 = [];
+var revenueList = [];
+
+resultArray.forEach(function(item) {
+    var key = item.createdAt;
+
+    if (!groupedData[key]) {
+        groupedData[key] = {
+            createdAt: item.createdAt,
+            sum: 0
+        };
+    }
+
+    groupedData[key].sum += getPriceByItemId(item.itemID) * item.quantity; // itemID와 quantity 값을 곱한 후 더함
+
+});
+
+// 결과 출력
+var resultArray = [];
+
+for (var key in groupedData) {
+    if (groupedData.hasOwnProperty(key)) {
+        resultArray.push(groupedData[key]);
+    }
+}
+
+var rearrangedResultArray = [];
+rearrangedResultArray.push(resultArray[(resultArray.length)-5]);
+rearrangedResultArray.push(resultArray[(resultArray.length)-4]);
+rearrangedResultArray.push(resultArray[(resultArray.length)-3]);
+rearrangedResultArray.push(resultArray[(resultArray.length)-2]);
+rearrangedResultArray.push(resultArray[(resultArray.length)-1]);
+
+for (var key in rearrangedResultArray){
+    if (rearrangedResultArray.hasOwnProperty(key)){
+        datelist2.push(rearrangedResultArray[key].createdAt);
+        revenueList.push(rearrangedResultArray[key].sum);
+    }
+}
+
+
+
+
+
+
+
+// itemId를 입력값으로 받아서 price를 리턴하는 함수
+function getPriceByItemId(itemId) {
+    // itemId에 해당하는 아이템 찾기
+    var item = itemList.find(function(item) {
+        return item.itemId === itemId;
+    });
+
+    // 아이템이 존재하면 price를 리턴, 아니면 null을 리턴
+    return item ? item.price : null;
+}
+
+
+
+
+
+
 
 
 
@@ -70,12 +158,12 @@ var ctx = document.getElementById("myBarChart");
 var myLineChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["January", "February", "March", "April", "May", "June"],
+        labels: [datelist2[0], datelist2[1], datelist2[2], datelist2[3], datelist2[4]],
         datasets: [{
-            label: "Revenue",
+            label: "매출액",
             backgroundColor: "rgba(2,117,216,1)",
             borderColor: "rgba(2,117,216,1)",
-            data: [4215, 5312, 6251, 7841, 9821, 14984],
+            data: [revenueList[0], revenueList[1], revenueList[2], revenueList[3], revenueList[4], revenueList[5]],
         }],
     },
     options: {
@@ -94,8 +182,8 @@ var myLineChart = new Chart(ctx, {
             yAxes: [{
                 ticks: {
                     min: 0,
-                    max: 15000,
-                    maxTicksLimit: 5
+                    max: 3000000,
+                    maxTicksLimit: 10
                 },
                 gridLines: {
                     display: true

@@ -9,6 +9,7 @@ var listItems = document.querySelectorAll("#myList li");
 
 listItems.forEach(function(order) {
     var text = order.textContent;
+    console.log(text);
     var trimmedString = text.replace(/^OrderList\(|\)$/g, '');
 
 // 쉼표(,)로 분리하여 키-값 쌍 생성
@@ -28,7 +29,7 @@ listItems.forEach(function(order) {
     orderList.push(resultObject);
 });
 
-console.log(orderList[0]);
+// console.log(orderList);
 
 // 유니크한 값과 개수를 저장할 객체 생성
 var uniqueCounts = {};
@@ -46,7 +47,7 @@ orderList.forEach(function(item) {
 var listDate = [];
 var listCount = [];
 
-// 객체에서 값 추출 및 로그로 출력 (5개만)
+// 객체에서 값 추출 및 로그로 출력
 var count = 0; // 출력된 값의 개수를 세는 변수
 for (var key in uniqueCounts) {
     if (uniqueCounts.hasOwnProperty(key)) {
@@ -56,19 +57,8 @@ for (var key in uniqueCounts) {
         listDate.push(key);
         listCount.push(uniqueCounts[key]);
 
-        if (count >= 5) {
-            break; // 5개 이상 출력되면 루프 종료
-        }
     }
 }
-
-
-// "DEF" 다음에 나오는 값을 추출
-
-
-
-
-
 
 
 // Area Chart Example
@@ -76,9 +66,9 @@ var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: [listDate[0], listDate[1], listDate[2], listDate[3],listDate[4]],
+        labels: [listDate[(listDate.length)-5], listDate[(listDate.length)-4], listDate[(listDate.length)-3], listDate[(listDate.length)-2],listDate[(listDate.length)-1]],
         datasets: [{
-            label: "Sessions",
+            label: "주문",
             lineTension: 0.3,
             backgroundColor: "rgba(2,117,216,0.2)",
             borderColor: "rgba(2,117,216,1)",
@@ -89,7 +79,7 @@ var myLineChart = new Chart(ctx, {
             pointHoverBackgroundColor: "rgba(2,117,216,1)",
             pointHitRadius: 50,
             pointBorderWidth: 2,
-            data: [listCount[0], listCount[1], listCount[2], listCount[3], listCount[4]],
+            data: [listCount[(listCount.length)-5], listCount[(listCount.length)-4], listCount[(listCount.length)-3], listCount[(listCount.length)-2], listCount[(listCount.length)-1]],
         }],
     },
     options: {
