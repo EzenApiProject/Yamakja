@@ -134,7 +134,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-chart-area me-1"></i>
-                                Area Chart Example
+                                날짜별 주문 횟수
                             </div>
                             <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
                         </div>
@@ -151,7 +151,12 @@
                 </div>
 
                 <ul style="visibility: hidden" id="myList">
-                    <c:forEach var="item" items="${orderlistAll}">
+                    <c:forEach var="order" items="${orderlistAll}">
+                        <li>${order}</li>
+                    </c:forEach>
+                </ul>
+                <ul style="visibility: hidden" id="myList2">
+                    <c:forEach var="item" items="${items}">
                         <li>${item}</li>
                     </c:forEach>
                 </ul>
@@ -412,7 +417,7 @@
 <script src="js/scripts.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 <script src="js/chart.js"></script>
-<script src="assets/demo/chart-bar-demo.js"></script>
+<script src="js/chartbar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
 <script src="js/datatables-simple-demo.js"></script>
 
