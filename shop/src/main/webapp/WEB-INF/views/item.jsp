@@ -46,7 +46,7 @@
     </div>
 </section>
 <header>
-    <img src="../assets/img/banner.jpg" class="banner">
+    <img class="banner" src="../assets/img/banner.jpg"/>
 </header>
 
 <section class="category">

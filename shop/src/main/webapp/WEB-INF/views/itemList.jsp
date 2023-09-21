@@ -44,7 +44,7 @@
     </div>
 </section>
 <header>
-    <img src="../assets/img/banner.jpg" class="banner">
+    <img class="banner" src="../assets/img/banner.jpg"/>
 </header>
     <section class="category mt-2">
         <section class="category-bar">

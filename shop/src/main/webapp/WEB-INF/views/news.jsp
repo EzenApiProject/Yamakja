@@ -44,7 +44,7 @@
     </div>
 </section>
 <header>
-    <img class="banner" src="../imgs/banner2.jpg"/>
+    <img class="banner" src="../assets/img/banner.jpg"/>
 </header>
 
 <div class="newsline">

@@ -42,7 +42,7 @@
     </div>
 </section>
 <header>
-    <img src="../imgs/banner.png" class="banner">
+    <img class="banner" src="../assets/img/banner.jpg"/>
 </header>
 <!-- Login -->
 <section class="py-5">
