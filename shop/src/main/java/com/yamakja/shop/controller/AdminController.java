@@ -41,7 +41,7 @@ public class AdminController {
         List<OrderList> orderList2 = new ArrayList<OrderList>();
         List<Member> memberList = memberService.getUserList();
         for (Member member : memberList) {
-            orderList1 = orderService.getOrderList(member.getId());
+            orderList1 = orderService.getOrderListAll(member.getId());
 
             for (OrderList orderList : orderList1){
                 orderList2.add(orderList);
@@ -87,7 +87,7 @@ public class AdminController {
         List<OrderList> orderList2 = new ArrayList<OrderList>();
         List<Member> memberList = memberService.getUserList();
         for (Member member : memberList) {
-            orderList1 = orderService.getOrderList(member.getId());
+            orderList1 = orderService.getOrderListAll(member.getId());
             for (OrderList orderList : orderList1){
                 orderList2.add(orderList);
             }
