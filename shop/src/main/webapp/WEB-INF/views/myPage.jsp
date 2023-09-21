@@ -74,79 +74,37 @@
 
 
 
-                    <form>
-                        <table>
-                            <thead class="buyhistory">
-                            <legend class="text-lg-center ordertitle">구매내역</legend>
-                            </thead>
-                            <tbody>
-<c:forEach var="index" items="${orderIndex}" varStatus="status">
-    <tr class="mypageitem">
-            <%--제품사진--%>
-        <td><img class="mypage-image" src="${orderItem[status.index].FPath}" alt="..."/></td>
-            <%--주문번호--%>
-        <td><br><p><c:out value="주문번호 -  ${index.orderId}"></c:out></p>
-                <%--상품명--%>
-            <h5><a href="#" class="itemtitle"><c:out value="${orderItem[status.index].name}"></c:out></a></h5>
-                <%--수량 가격--%>
-            <p><c:out value="수량: ${index.quantity}"></c:out> <c:out value="가격: ${orderItem[status.index].price}"></c:out></p>
+    <form>
+        <table>
+            <thead class="buyhistory">
+            <legend class="text-lg-center ordertitle">구매내역</legend>
+            </thead>
+            <tbody>
+                <c:forEach var="index" items="${orderIndex}" varStatus="status">
+                    <tr class="mypageitem">
+                            <%--제품사진--%>
+                        <td><img class="mypage-image" src="${orderItem[status.index].FPath}" alt="..."/></td>
+                            <%--주문번호--%>
+                        <td><br><p><c:out value="주문번호 -  ${index.orderId}"></c:out></p>
+                                <%--상품명--%>
+                            <h5><a href="#" class="itemtitle"><c:out value="${orderItem[status.index].name}"></c:out></a></h5>
+                                <%--수량 가격--%>
+                            <p><c:out value="수량: ${index.quantity}"></c:out> <c:out value="가격: ${orderItem[status.index].price}"></c:out></p>
 
-            <a class="cartbtn" href="#">장바구니 담기</a>
-            <a class="reviewbtn" href="/addComments/?itemId=${orderItem[status.index].itemId}">후기작성</a>
-                <%--결제일--%>
-            <p><c:out value="${index.createdAt}"></c:out></p>
-        </td>
-            <%--배송상태--%>
-        <td>
-            <p class="text-lg-right"><c:out value="${index.status}"></c:out></p>
-        </td>
-    </tr>
-
-    <tr class="mypageitem">
-            <%--제품사진--%>
-        <td><img class="mypage-image" src="${orderItem[status.index].FPath}" alt="..."/></td>
-            <%--주문번호--%>
-        <td><br><p><c:out value="주문번호 -  ${index.orderId}"></c:out></p>
-                <%--상품명--%>
-            <h5><a href="#" class="itemtitle"><c:out value="${orderItem[status.index].name}"></c:out></a></h5>
-                <%--수량 가격--%>
-            <p><c:out value="수량: ${index.quantity}"></c:out> <c:out value="가격: ${orderItem[status.index].price}"></c:out></p>
-
-            <a class="cartbtn" href="#">장바구니 담기</a>
-            <a class="reviewbtn" href="/addComments/?itemId=${orderItem[status.index].itemId}">후기작성</a>
-                <%--결제일--%>
-            <p><c:out value="${index.createdAt}"></c:out></p>
-        </td>
-            <%--배송상태--%>
-        <td>
-            <p class="text-lg-right"><c:out value="${index.status}"></c:out></p>
-        </td>
-    </tr>
-
-    <tr class="mypageitem">
-            <%--제품사진--%>
-        <td><img class="mypage-image" src="${orderItem[status.index].FPath}" alt="..."/></td>
-            <%--주문번호--%>
-        <td><br><p><c:out value="주문번호 -  ${index.orderId}"></c:out></p>
-                <%--상품명--%>
-            <h5><a href="#" class="itemtitle"><c:out value="${orderItem[status.index].name}"></c:out></a></h5>
-                <%--수량 가격--%>
-            <p><c:out value="수량: ${index.quantity}"></c:out> <c:out value="가격: ${orderItem[status.index].price}"></c:out></p>
-
-            <a class="cartbtn" href="#">장바구니 담기</a>
-            <a class="reviewbtn" href="/addComments/?itemId=${orderItem[status.index].itemId}">후기작성</a>
-                <%--결제일--%>
-            <p><c:out value="${index.createdAt}"></c:out></p>
-        </td>
-            <%--배송상태--%>
-        <td>
-            <p class="text-lg-right"><c:out value="${index.status}"></c:out></p>
-        </td>
-    </tr>
-    </c:forEach>
-                        </tbody>
-                    </table>
-                </form>
+                            <a class="cartbtn" href="#">장바구니 담기</a>
+                            <a class="reviewbtn" href="/addComments/?itemId=${orderItem[status.index].itemId}">후기작성</a>
+                                <%--결제일--%>
+                            <p><c:out value="${index.createdAt}"></c:out></p>
+                        </td>
+                            <%--배송상태--%>
+                        <td>
+                            <p class="text-lg-right"><c:out value="${index.status}"></c:out></p>
+                        </td>
+                    </tr>
+                    </c:forEach>
+            </tbody>
+        </table>
+    </form>
 
         <section class="logdel">
             <div class="deletebtn">
@@ -164,15 +122,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
 <footer class="bg-dark">
     <div class="container">
         <div class="footerinfo">

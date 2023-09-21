@@ -47,13 +47,13 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
     }
     private Member saveOrUpdate(OAuthAttributes attributes,String registrationId) {
         if (memberMapper.getMemberByEmail(attributes.getEmail()) == null) {
-            log.info("비엇다");
+            log.info("not exist");
             if ("naver".equals(registrationId)){
                 return saveNaver(attributes);
             }
             return saveGoogle(attributes);
         } else {
-            log.info("안 비엇다");
+            log.info("exist");
             return memberMapper.getMemberByEmail(attributes.getEmail());
         }
     }
