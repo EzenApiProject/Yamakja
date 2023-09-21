@@ -31,7 +31,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav2">
-                    <a href=""><img src="../imgs/logo.png" class="logo"></a>
+                    <a href="/"><img src="../imgs/logo.png" class="logo"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <li class="nav-item"><a class="nav-link" href="#!">문의</a></li>
                     <li class="nav-item"><a class="nav-link" href="/news">뉴스</a></li>
@@ -50,10 +50,10 @@
     </section>
     <div class="login">
         <h3>로그인</h3><br>
-        <form method="post">
+        <form action="/auth" method="post">
             <div class="textline">
-                <input type="text" name="u" placeholder="ID"/>
-                <input type="password" name="p" placeholder="비밀번호" required="required" />
+                <input type="text" name="id" id="id" placeholder="ID"/>
+                <input type="password" name="password" id="password" placeholder="비밀번호" required="required" />
             </div><br>
             <div class="sociallogin">
                 <img class="google" src="../imgs/button/btn_google_signin_light_normal_web@2x.png"

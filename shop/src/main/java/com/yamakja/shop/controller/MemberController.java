@@ -27,7 +27,7 @@ import java.util.jar.Attributes;
 @RequiredArgsConstructor
 public class MemberController {
 
-    private MemberService memberService;
+    private final MemberService memberService;
 
 
 //    @GetMapping("/myPage")

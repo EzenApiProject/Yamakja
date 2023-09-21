@@ -49,11 +49,11 @@
     <div class="signup">
         <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto">
-                <form class="validation-form" novalidate>
+                <form method="post" action="/signup" class="validation-form" novalidate>
                     <section class="id-section">
                         <div class="col-md-3 mb-3">
                             <label for="id">아이디</label>
-                            <input type="text" class="form-control" id="id" placeholder="" value="" required>
+                            <input type="text" class="form-control" name="id" id="id" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 아이디를 입력해주세요.
                             </div>
@@ -61,7 +61,7 @@
 
                         <div class="col-md-3 mb-3">
                             <label for="password">비밀번호</label>
-                            <input type="text" class="form-control" id="password" placeholder="" value="" required>
+                            <input type="text" class="form-control" name="password" id="password" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 비밀번호를 입력해주세요.
                             </div>
@@ -84,7 +84,7 @@
                     <section class="info-section">
                         <div class="col-md-8 mb-3">
                             <label for="address">주소</label>
-                            <input type="text" class="form-control" id="address" placeholder="" required>
+                            <input type="text" class="form-control" name="address" id="address" placeholder="" required>
                             <div class="invalid-feedback">
                                 주소를 입력해주세요.
                             </div>
@@ -100,7 +100,7 @@
 
                         <div class="col-md-3 mb-3">
                             <label for="name">이름</label>
-                            <input type="text" class="form-control" id="name" placeholder="" value="" required>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 이름을 입력해주세요.
                             </div>
@@ -108,7 +108,7 @@
 
                         <div class="col-md-3 mb-3">
                             <label for="birth">생년월일</label>
-                            <input type="text" class="form-control" id="birth" placeholder="" value="" required>
+                            <input type="text" class="form-control" name="birthday" id="birth" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 생년월일을 입력해주세요.
                             </div>
@@ -116,7 +116,7 @@
 
                         <div class="col-md-3 mb-3">
                             <label for="phone">연락처</label>
-                            <input type="text" class="form-control" id="phone" placeholder="" value="" required>
+                            <input type="text" class="form-control" name="phone" id="phone" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 연락처를 입력해주세요.
                             </div>
@@ -124,7 +124,7 @@
 
                         <div class="col-md-3 mb-3">
                             <label for="email">이메일</label>
-                            <input type="email" class="form-control" id="email" placeholder="" value="" required>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 이메일을 입력해주세요.
                             </div>
