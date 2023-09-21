@@ -53,7 +53,7 @@
 
                         <div class="col-md-3 mb-3">
                             <label for="password">변경 할 비밀번호</label>
-                            <input type="text" class="form-control" id="password" placeholder="" value="" required>
+                            <input type="password" class="form-control" id="password" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 비밀번호를 입력해주세요.
                             </div>
@@ -62,7 +62,7 @@
 
                         <div class="col-md-3 mb-3">
                             <label for="passcheck">비밀번호 확인</label>
-                            <input type="text" class="form-control" id="passcheck" placeholder="" value="" required>
+                            <input type="password" class="form-control" id="passcheck" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 비밀번호를 확인해주세요.
                             </div>
@@ -76,7 +76,7 @@
                     <section class="info-section">
                         <div class="col-md-8 mb-3">
                             <label for="address">주소</label>
-                            <input type="text" class="form-control" id="address" placeholder="" required>
+                            <input type="text" class="form-control" id="address" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 주소를 입력해주세요.
                             </div>

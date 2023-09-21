@@ -72,6 +72,9 @@ body {
   margin-top: 2%;
 }
 
+#password, #passcheck, #address, #postal, #name, #birth, #phone, #email {
+  font-size: 12px;
+}
 
 
 

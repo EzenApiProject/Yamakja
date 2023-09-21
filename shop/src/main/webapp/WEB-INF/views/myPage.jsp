@@ -58,7 +58,7 @@
                     <section class="id-section">
                         <div class="col-md-3 mb-3">
                             <label for="myid">아이디</label>
-                            <input type="text" class="form-control" id="myid" value="">
+                            <input type="text" class="form-control" id="myid" value="${member.id}" readonly>
                         </div>
 
                         <div class="col-md-3 mb-3">
