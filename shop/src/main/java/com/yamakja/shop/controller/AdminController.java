@@ -35,7 +35,24 @@ public class AdminController {
     private final OrderService orderService;
 
     @GetMapping("/admin")
-    public String dashboard(Model model){
+    public String dashboard(Model model) throws Exception {
+
+        List<OrderList> orderList1 = new ArrayList<OrderList>();
+        List<OrderList> orderList2 = new ArrayList<OrderList>();
+        List<Member> memberList = memberService.getUserList();
+        for (Member member : memberList) {
+            orderList1 = orderService.getOrderList(member.getId());
+
+            for (OrderList orderList : orderList1){
+                orderList2.add(orderList);
+            }
+        }
+
+        orderList2 = orderlistSort(orderList2);
+
+        model.addAttribute("orderlistAll", orderList2);
+        model.addAttribute("items",itemService.getItems());
+
         return"/dashboard";
     }
 
@@ -98,5 +115,5 @@ public class AdminController {
         return orderList;
     }
 
-    
+
 }
