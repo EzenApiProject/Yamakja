@@ -32,7 +32,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav2">
                     <img src="../assets/img/logo.png" class="logo" onclick="location.href='/'">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <li class="nav-item"><a class="nav-link" href="#!">문의</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/faq">문의</a></li>
                     <li class="nav-item"><a class="nav-link" href="/news">뉴스</a></li>
                     <li class="nav-item"><a class="nav-link" href="/itemList">상품</a></li>
                 </ul>
@@ -49,12 +49,6 @@
         <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto">
                 <form class="validation-form" novalidate>
-<%--                        <h5>${member.name}님의 회원 정보</h5>--%>
-<%--                        <p>${member.name}</p>--%>
-<%--                        <p>${member.email}</p>--%>
-<%--                        <p>${member.address}</p>--%>
-<%--                        <p>${member.phone}</p>--%>
-<%--                        <p>password: ${member.password}d</p>--%>
                     <section class="id-section">
                         <div class="col-md-3 mb-3">
                             <label for="myid">아이디</label>
@@ -69,11 +63,12 @@
                     <section class="infochange">
                         <button class="changebtn" type="button" onclick="location.href='update'">개인정보변경</button>
                     </section>
+                </form>
 
 
 
 
-
+<%--닫힘--%>
     <form>
         <table>
             <thead class="buyhistory">

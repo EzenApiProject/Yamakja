@@ -33,7 +33,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav2">
                     <a href="/"><img src="../imgs/logo.png" class="logo"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <li class="nav-item"><a class="nav-link" href="#!">문의</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/faq">문의</a></li>
                     <li class="nav-item"><a class="nav-link" href="/news">뉴스</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">상품</a></li>
                 </ul>
