@@ -33,7 +33,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav2">
                     <a href="/"><img src="../imgs/logo.png" class="logo"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <li class="nav-item"><a class="nav-link" href="#!">문의</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/faq">문의</a></li>
                     <li class="nav-item"><a class="nav-link" href="/news">뉴스</a></li>
                     <li class="nav-item"><a class="nav-link" href="#!">상품</a></li>
                 </ul>
@@ -69,11 +69,13 @@
 </section>
 
 <!-- Footer-->
-<footer class="py-5 bg-dark">
+<footer class="bg-dark">
     <div class="container">
-        <img class="footerlogo" src="../imgs/logo.png">
-        <p class="m-0 text-white">https://github.com/EzenApiProject</p>
-        <p class="m-0 text-white">경기도 성남시 중원구 광명로 4 이젠아카데미</p>
+        <div class="footerinfo">
+            <img class="footerlogo" src="../assets/img/logo.png">
+            <p class="m-0 text-white">https://github.com/EzenApiProject</p>
+            <p class="m-0 text-white">경기도 성남시 중원구 광명로 4 이젠아카데미</p>
+        </div>
     </div>
     <div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.1851849351115!2d127.12707597677145!3d37.432729831788144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca883df7418d1%3A0xfdd9d220bb6a8e91!2z6rK96riw64-EIOyEseuCqOyLnCDspJHsm5Dqtawg6rSR66qF66GcIDQ!5e0!3m2!1sko!2skr!4v1694566071535!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

@@ -58,17 +58,17 @@
     </div>
 </section>
 
-<div class="container px-4 px-lg-5 my-4 outline-div">
+<div class="container px-4 px-lg-5 my-4">
     <div class="row gx-4 gx-lg-5">
         <div class="col-md-6">
             <div class="">
                 <img class="card-img-top mb-5 mb-md-0" src="${item.FPath}" alt="이미지 준비중.." />
             </div>
             <div class="small-images">
-                <div class="outline-div2 small-images">
+                <div class="small-img">
                     <img class="" src="${item.FPath}" height="100" alt="이미지 준비중.." />
                 </div>
-                <div class="outline-div2 small-images">
+                <div class="small-img">
                     <img class="" src="${item.FPath}" height="100" alt="이미지 준비중.." />
                 </div>
             </div>
@@ -89,9 +89,15 @@
 
             <form action="/addCart/?itemId=${item.itemId}" class="d-flex" method="post">
                 <div class="input-group">
-                    <input class="form-control" name="quantity" id="quantity" type="num" value="1">
-                    <button class="btn btn-outline-secondary" name="direct" type="submit" value="true">주문하기</button>
-                    <button class="btn btn-outline-secondary" name="direct" type="submit" value="false">장바구니</button>
+                    <div class="iteminput">
+                    <input class="itemquantity" name="quantity" id="quantity" type="num" value="1">
+                    </div>
+                    <div>
+                    <button class="directbtn" type="submit" value="false">장바구니</button>
+                    </div>
+                    <div>
+                    <button class="direct" type="submit" value="true">구매하기</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -107,7 +113,7 @@
 
         <div class="row gx-4 gx-lg-5 row-cols-3 row-cols-md-4 row-cols-md-5">
 
-        <c:forEach var="item" items="${items}" begin="1" end="10">
+        <c:forEach var="item" items="${items}" begin="1" end="5">
             <div class="col mb-5">
                 <div class="card">
                     <a href="/item/?itemId=${item.itemId}" style="text-decoration: none">
@@ -116,8 +122,10 @@
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
+                                <div class="relatedname">
                                 <!-- Product name-->
                                 <p class="fw-bolder text-break">${item.name}</p>
+                                </div>
 
 
                                 <!-- 이후 new나 hot의 조건이 설정되면 변경-->
@@ -144,28 +152,32 @@
 
             </c:forEach>
         </div>
-            <div>
+            <div class="reviewline">
                 <c:forEach var="comment" items="${itemComment}" begin="0" end="3">
-                    <div class="row gx-4 gx-lg-5 outline-div2">
-                        <div>
-                            <p><span style="font-weight: bold">작성자</span> :
+                        <div class="reviewbox">
+                            <div class="reviewboxleft">
+                            <p>
                             <c:out value="${comment.memberId}"></c:out> - <c:out value="${comment.createdAt}"></c:out></p>
-                            <h2><c:out value="${comment.title}"></c:out>   </h2>
-                            <hr>
+                            <p class="commenttitle"><c:out value="${comment.title}"></c:out></p>
+
                             <p><c:out value="${comment.comment}"></c:out></p>
-                            <img src="${comment.FPath}" alt="..." width="200">
+                            </div>
+                            <div class="reviewboxright">
+                            <img src="${comment.FPath}" alt="..." width="150">
+                            </div>
                         </div>
-                    </div>
                 </c:forEach>
             </div>
         </div>
 </section>
 <!-- Footer-->
-<footer class="py-5 bg-dark">
+<footer class="bg-dark">
     <div class="container">
-        <img class="footerlogo" src="../assets/img/logo.png">
-        <p class="m-0 text-white">https://github.com/EzenApiProject</p>
-        <p class="m-0 text-white">경기도 성남시 중원구 광명로 4 이젠아카데미</p>
+        <div class="footerinfo">
+            <img class="footerlogo" src="../assets/img/logo.png">
+            <p class="m-0 text-white">https://github.com/EzenApiProject</p>
+            <p class="m-0 text-white">경기도 성남시 중원구 광명로 4 이젠아카데미</p>
+        </div>
     </div>
     <div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.1851849351115!2d127.12707597677145!3d37.432729831788144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca883df7418d1%3A0xfdd9d220bb6a8e91!2z6rK96riw64-EIOyEseuCqOyLnCDspJHsm5Dqtawg6rSR66qF66GcIDQ!5e0!3m2!1sko!2skr!4v1694566071535!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
