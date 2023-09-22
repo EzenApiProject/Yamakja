@@ -38,7 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .httpBasic().disable()
-//                .anonymous().disable()
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/auth")
@@ -47,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/user","/login", "/signup","/itemList","/","/item").permitAll()
+                .antMatchers("/api/user","/login", "/signup","/itemList","/","/item/","/news").permitAll()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +13,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link href="css/style1.css" rel="stylesheet" />
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -61,7 +66,6 @@
 
 <section class="cart">
     <table>
-        <form action="/pay" method="POST">
             <thead>
             <tr class="tabletop">
                 <td></td>
@@ -73,47 +77,64 @@
             </thead>
             <tbody>
 
-            <c:forEach var="item" items="${carts}">
-
-            <tr class="cart__list__detail">
-                <td>
-                    <input type="checkbox" name="check" class="checkbox">
-                    <input type="hidden" name="itemId" value="${item.itemId}">
-                </td>
-                <td>
-                    <img class="cart-image" src="${item.FPath}" alt="">
-                </td>
-                <td colspan="3">
-                    <p><a href="/item/?itemId=${item.itemId}">${item.name}</a></p>
-                </td>
-                <td class="cart__list__option">
-                    <p>${item.price}</p>
-                </td>
-                <td>
-                    <p>${item.quantity}</p>
-                    <button type ="button">-</button>
-                    <button type ="button">+</button>
-                </td>
-                <td>
-                    <p>${item.price*item.quantity}</p>
-                    <button class="btn-danger">제거</button>
-                </td>
-            </tr>
-            </c:forEach>
+            <c:forEach var="item" items="${carts}" varStatus="i">
+            <form action="/deleteCart" method="post" class="itemform">
+                <tr class="cart__list__detail">
+                    <td>
+                        <input type="hidden" id="itemId" name="itemId" class="itemId" value="${item.itemId}">
+                    </td>
+                    <td>
+                        <img class="cart-image" src="${item.FPath}" alt="">
+                    </td>
+                    <td colspan="3">
+                        <p><a href="/item/?itemId=${item.itemId}">${item.name}</a></p>
+                    </td>
+                    <td class="cart__list__option">
+                        <p>${item.price}</p>
+                    </td>
+                    <td>
+                        <input type="number" onchange="myFunction(this)" id="${i.index}" name="quantity" class="quantity" value="${item.quantity}" style="width:60px;height:40px">
+                    </td>
+                    <td>
+                        <p>${item.price*item.quantity}</p>
+                        <button class="btn-danger" type="submit">제거</button>
+                    </td>
+                </tr>
+                </form>
+                </c:forEach>
             </tbody>
             <tfoot>
             <tr class="clear">
                 <td colspan="8"><button class="cart__del">비우기</button></td>
             </tr>
             </tfoot>
-        </form>
     </table>
     <div class="card-header" style="text-align: right;">
         총 합계: <span id="total">0</span>
     </div>
     <div class="cart__mainbtns">
-        <button class="order" onclick="location.href='/pay'">구매하기
-        </button>
+        <form action="/pay" method="post">
+            <c:forEach var="item" items="${carts}" varStatus="index">
+                <input type="hidden" name="carts[${index.index}].itemId" value="${item.itemId}">
+                <input type="hidden" id="q${index.index}" name="carts[${index.index}].quantity" value="${item.quantity}">
+                <input type="hidden" name="carts[${index.index}].fPath" value="${item.FPath}">
+                <input type="hidden" name="carts[${index.index}].name" value="${item.name}">
+                <input type="hidden" name="carts[${index.index}].price" value="${item.price}">
+            </c:forEach>
+            <button class="order" href="/pay" id="order">
+                구매하기
+            </button>
+        </form>
+        <script>
+            $('.quantity').change(function(){
+                var id = this.getAttribute('id');
+                var quantity = this.val();
+                target = document.getElementById("q" + id);
+                console.log(target);
+                target.val(quantity);
+                console.log(quantity);
+            })
+        </script>
     </div>
 </section>
 </body>
@@ -134,29 +155,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <!-- Core theme JS-->
 <script src="js/scripts.js"></script>
-<script>
-    // 체크된 행의 컬럼값 더하기
-    function calculateTotal() {
-        var checkboxes = document.querySelectorAll('.checkbox');
-        var total = 0;
-
-        for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                var row = checkboxes[i].parentNode.parentNode;
-                var cell = row.cells[5]; // 세 번째 컬럼 (0부터 시작)
-                total += parseInt(cell.innerText);
-            }
-        }
-
-        // 결과를 화면에 표시
-        document.getElementById('total').textContent = total;
-    }
-
-    // 체크박스가 변경될 때마다 합계를 다시 계산
-    var checkboxes = document.querySelectorAll('.checkbox');
-    for (var i = 0; i < checkboxes.length; i++) {
-        checkboxes[i].addEventListener('change', calculateTotal);
-    }
 </script>
 </body>
 </html>

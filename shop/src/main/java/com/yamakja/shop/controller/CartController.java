@@ -1,6 +1,8 @@
 package com.yamakja.shop.controller;
 
+import com.nimbusds.jose.shaded.json.parser.JSONParser;
 import com.yamakja.shop.domain.Cart;
+import com.yamakja.shop.domain.Carts;
 import com.yamakja.shop.domain.Item;
 import com.yamakja.shop.service.CartService;
 import com.yamakja.shop.service.ItemService;
@@ -14,12 +16,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import static com.fasterxml.jackson.databind.type.LogicalType.Map;
 
@@ -73,6 +76,28 @@ public class CartController {
         model.addAttribute("total",cartService.getTotal(memberId));
         model.addAttribute("member",memberService.getUserById(memberId));
         return "/pay";
+    }
+    @PostMapping("/pay")
+    public String PostPay(@ModelAttribute(value="Carts") Carts carts, Model model, @AuthenticationPrincipal OAuth2User oauthUser) {
+        String memberId = getMemberId(oauthUser);
+        int total = 0;
+        List<Cart> cartList = carts.getCarts();
+        log.info(cartList.toString());
+        for(Cart cart: cartList){
+            total += cart.getPrice() * cart.getQuantity();
+        }
+        model.addAttribute("carts", cartList);
+        model.addAttribute("total", total);
+        model.addAttribute("member",memberService.getUserById(memberId));
+        return "/pay";
+    }
+
+    @PostMapping("/deleteCart")
+    public String deleteCart(Model model,Integer itemId, @AuthenticationPrincipal OAuth2User oauthUser){
+        String memberId = getMemberId(oauthUser);
+        cartService.deleteCart(itemId,memberId);
+        model.addAttribute("carts",cartService.getItemsByMemberId(memberId));
+        return"redirect:/cart";
     }
 
     public String getMemberId(OAuth2User oauthUser){

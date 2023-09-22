@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.List;
 
 
 // 실제로 DB에 저장되있지는 않은 item과 cartitem.quantity를 합친걸 받기위한 객체

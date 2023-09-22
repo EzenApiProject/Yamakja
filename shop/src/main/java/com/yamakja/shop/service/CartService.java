@@ -4,6 +4,7 @@ import com.yamakja.shop.domain.Cart;
 import com.yamakja.shop.domain.CartItem;
 import com.yamakja.shop.domain.Item;
 import com.yamakja.shop.mapper.CartMapper;
+import com.yamakja.shop.mapper.ItemMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ import java.util.Map;
 public class CartService {
 
     private final CartMapper cartMapper;
+    private final ItemMapper itemMapper;
 
 
     public List<Cart> getItemsByMemberId(String memberId){
@@ -55,6 +57,11 @@ public class CartService {
             log.info(cartItem.toString());
             cartMapper.addCartItem(cartItem);
         }
+    }
+
+    public void deleteCart(Integer itemId,String memberId){
+        log.info("Delete Cart item id = " + itemId + "memberId = " + memberId);
+        cartMapper.deleteCart(itemId, memberId);
     }
 
     public Integer getTotal(String memberId){

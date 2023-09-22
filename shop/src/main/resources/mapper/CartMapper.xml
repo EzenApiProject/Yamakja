@@ -53,10 +53,10 @@
 
     <delete id="deleteCart">
         DELETE FROM CARTITEM
-        WHERE CARTMEMBERID = #{memberId} AND CARTITEMID = #{cartId}
+        WHERE CARTMEMBERID = #{memberId} AND CARTITEMID = #{itemId}
     </delete>
 
-    <select id="hasCart">
+    <select id="hasCart" resultType="java.lang.Boolean">
         SELECT * FROM CARTITEM WHERE CARTMEMBERID = #{memberId}
         AND CARTITEMID = #{itemId}
     </select>
