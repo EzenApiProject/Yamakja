@@ -148,14 +148,95 @@ body {
   margin-bottom: 5%;
 }
 
-.reviewboxleft>p nth:nth-child(1) {
+.reviewboxleft>p:nth-child(0) {
   font-size: 30px;
 }
 
 
+.faqtable tr {
+  text-align: center;
+  color: #6c757d;
+}
 
+.faqtable th {
+  font-size: 15px;
+  border-bottom: 2px solid #34383c;
+  color: #000000;
+}
 
+.faqtable td {
+  border-bottom: 1px solid #d3d3d4;
+}
 
+.faqtable {
+  border-top: 2px solid #34383c;
+}
+
+.faqtitle {
+  text-align: left !important;
+  font-weight: bold;
+}
+
+.searchline {
+  width: 200px;
+  height: 50px;
+}
+
+.searchtext {
+  width: 130px;
+  height: 22px;
+  color: #1e2125;
+  font-size: 13px;
+  margin-right: 0 !important;
+}
+
+.searchbtn {
+  width: 50px;
+  height: 22px;
+  font-size: 10px;
+  text-align: center;
+  background-color: #f5c2c7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.searchbar {
+  width: 250px;
+}
+
+.faqarea {
+  width: 60%;
+  margin: auto;
+}
+
+.faqareatitle {
+  margin-top: 5%;
+  height: 30px;
+  border-radius: 5px;
+  color: #373b3e;
+}
+
+.faqareatext {
+  margin-top: 5%;
+  width: 100%;
+  min-height: 250px;
+  border-radius: 5px;
+  color: #373b3e;
+}
+
+.faqareabtn {
+  width: 80px;
+  height: 35px;
+  font-size: 10px;
+  text-align: center;
+  background-color: #f5c2c7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  float: right;
+  margin-top: 5%;
+}
 
 
 
@@ -319,6 +400,7 @@ body {
   font-size: small;
   max-width: 680px;
   margin-top: 80px;
+  margin-bottom: 80px;
   padding: 32px;
   background: #fff;
   border: 0.5px solid #e5e5e5;
